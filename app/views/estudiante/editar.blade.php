@@ -281,7 +281,7 @@
 			    		<label for="tutor" class="col-sm-3 control-label">¿Con quien vive el estudiante?</label>
 			   			<div class="col-sm-9">
 			   				<select class="form-control" id="tutor" name="tutor">
-			   					@foreach ($tutor as $indice => $valor)
+			   					@foreach (Util::$tutor as $indice => $valor)
 							  	<option {{$estudiante->administrativa->whom_student_live==$indice?'selected':''}} value="{{$indice}}">{{$valor}}</option>
 								@endforeach
 							</select>
