@@ -81,7 +81,7 @@ class FamiliaController extends BaseController {
 		$tutor->house_number 		= $input['tutor-num-casa'];
 		$tutor->save();
 
-		$trabajo = new Trabajo;
+		$trabajo = new Trabajo;//employment_information
 		$trabajo->cod_family_detail = $tutor->cod_family_detail;
 		$trabajo->company_name 		= Util::ascii_transponse($input['tutor-empresa']);
 		$trabajo->company_owner 	= $input['propietario'];
@@ -89,7 +89,7 @@ class FamiliaController extends BaseController {
 		$trabajo->phone_extension 	= $input['empresa-extension'];
 		$trabajo->company_position 	= Util::ascii_transponse($input['cargo']);
 		$trabajo->company_mobile 	= $input['empresa-celular'];
-		$trabajo->company_email 	= $input['tempresa-correo'];
+		$trabajo->company_email 	= $input['empresa-correo'];
 		$trabajo->save();
 
 		return Redirect::action('FamiliaController@padrenuevo', array('id' => $input['familia_id']));

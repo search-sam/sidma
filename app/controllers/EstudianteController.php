@@ -4,7 +4,8 @@ class EstudianteController extends BaseController {
 
 	public function inicio()
 	{
-		$estudiantes = Estudiante::all();
+		$estudiantes = Estudiante::join('user', 'user.cod_user', '=', 'student.cod_user')
+                        ->where('cod_profile','!=',1)->get();
 
 		return View::make('estudiante.estudiante')->with('estudiantes', $estudiantes);
 	}
@@ -105,9 +106,9 @@ class EstudianteController extends BaseController {
 		$input = Input::all();
 
 		$estudiante 					= Estudiante::find($input['estudiante_id']);
-		$estudiante->student_card 		= $card;
+		//$estudiante->student_card 		= $card;
 		$estudiante->student_photo 		= $input['foto'];
-		$estudiante->cod_family 		= $familia->cod_family;
+		//$estudiante->cod_family 		= $familia->cod_family;
 		$estudiante->first_name 		= Util::ascii_transponse($input['nombre1']);
 		$estudiante->second_name 		= Util::ascii_transponse($input['nombre2']);
 		$estudiante->first_last_name 	= Util::ascii_transponse($input['apellido1']);
@@ -122,9 +123,44 @@ class EstudianteController extends BaseController {
 		$estudiante->house_number 		= $input['num-casa'];
 		$estudiante->email 				= $input['correo'];
 		$estudiante->student_state 		= 0;
-		$estudiante->cod_user 			= $usuario->cod_user;
+		//$estudiante->cod_user 			= $usuario->cod_user;
 		$estudiante->save();
-
+                
+                $academica = Academica::find($estudiante->academica->cod_academic_information);
+		$academica->level_course				 = empty($input['grado'])?NULL:$input['grado'];
+		$academica->studied_before 		 		 = empty($input['estudiado'])?NULL:$input['estudiado'];
+		$academica->last_school			 		 = Util::ascii_transponse(empty($input['estudiado'])?NULL:$input['colegio']);
+		$academica->city_last_school 		 	 = Util::ascii_transponse(empty($input['col-pais'])?NULL:$input['col-pais']);
+		$academica->completed_grade 		 	 = Util::arrtostr(empty($input['cursos'])?NULL:$input['cursos']);
+		$academica->reason_changing_school 		 = Util::arrtostr(empty($input['cambios'])?NULL:$input['cambios']);
+		$academica->reason_chose_school	 		 = Util::arrtostr(empty($input['escogio'])?NULL:$input['escogio']);
+		$academica->way_met_school		 		 = Util::arrtostr(empty($input['saber'])?NULL:$input['saber']);
+		$academica->birth_certificate 	 		 = empty($input['partida'])?NULL:$input['partida'];
+		$academica->good_standing 		 		 = empty($input['conducta'])?NULL:$input['conducta'];
+		$academica->payment_solvency 		 	 = empty($input['solvencia'])?NULL:$input['solvencia'];
+		$academica->school_grades 		 		 = Util::arrtostr(empty($input['cursos'])?NULL:$input['cursos']);
+		$academica->insurance_student 	 		 = empty($input['seguro'])?NULL:$input['seguro'];
+		$academica->tutor_compromise_signature 	 = empty($input['compromiso-tutor'])?NULL:$input['compromiso-tutor'];
+		$academica->student_compromise_signature = empty($input['compromiso-estudiante'])?NULL:$input['compromiso-estudiante'];
+		$academica->save();
+		
+		$administrativa = Administrativa::find($estudiante->administrativa->cod_admin_information);
+		$administrativa->whom_student_live 			= empty($input['tutor'])?NULL:$input['tutor'];
+		$administrativa->payment_responsable 		= empty($input['pago'])?NULL:$input['pago'];
+		$administrativa->payment_plan_signature 	= empty($input['plan-pago'])?NULL:$input['plan-pago'];
+		$administrativa->school_contract_signature 	= empty($input['contrato'])?NULL:$input['contrato'];
+		$administrativa->transport_take 			= empty($input['transporte'])?NULL:$input['transporte'];
+		$administrativa->save();
+		
+		$medica = Medica::find($estudiante->medica->cod_medical_information);
+		$medica->common_allergie	 = Util::ascii_transponse(empty($input['alergia'])?NULL:$input['alergia']);
+		$medica->medicine_allergie	 = Util::ascii_transponse(empty($input['medicamento'])?NULL:$input['medicamento']);
+		$medica->physical_impediment = Util::ascii_transponse(empty($input['impedimento'])?NULL:$input['impedimento']);
+		$medica->permanet_illness	 = Util::ascii_transponse(empty($input['enfermedad'])?NULL:$input['enfermedad']);
+		$medica->emergency_call		 = empty($input['emergencia'])?NULL:$input['emergencia'];
+		$medica->comment			 = Util::ascii_transponse(empty($input['comentario'])?NULL:$input['comentario']);
+		$medica->save();
+                
 		return Redirect::action('EstudianteController@inicio');
 	}
 
@@ -181,5 +217,6 @@ class EstudianteController extends BaseController {
 
 		$familia = Familia::where('cod_user', '=', $estudiante->cod_user)->get();
 		return Redirect::action('FamiliaController@padrenuevo', array('familia_id' => $familia[0]->cod_family));
+               // return Redirect::action('EstudianteController@inicio');
 	}
 }

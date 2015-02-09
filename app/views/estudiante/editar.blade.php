@@ -8,7 +8,7 @@
 @section('side')
 <div class="col-sm-3 col-sm-offset-9 col-md-2 col-md-offset-10 sidebar bs-docs-sidebar hidden-print hidden-xs hidden-sm affix-top" role="complementary">
 	<ul class="nav bs-docs-sidenav">
-		<li><a href="#guardar"><b>Gardar</b></a></li>
+		<li><a href="#guardar"><b>Guardar</b></a></li>
 		<li><a href="#inicio"><b>Inicio</b></a></li>	
 	</ul>
 </div>
@@ -21,8 +21,9 @@
 		<!-- Pestañas -->
 		<ul class="nav nav-tabs" role="tablist">
 		  	<li class="active"><a href="#estudiante">Informacion del Estudiante</a></li>
+                        <li><a href="#familiainfo">Informacion Familiar</a></li>
 		  	<li><a href="#academica">Informacion Academica</a></li>
-		  	<li><a href="#administrativa">Inforamcion Administrativa</a></li>
+		  	<li><a href="#administrativa">Informacion Administrativa</a></li>
 		  	<li><a href="#medica">Informacion Medica</a></li>
 		  	<li><a href="#documentos">Documentos</a></li>
 		</ul>
@@ -150,6 +151,12 @@
 			  		</div>
 		  			{{-- ==================================================================================================== --}}
 	  			</div>
+                                {{-- Informacion Parental --}}
+                                <div class="tab-pane" id="familiainfo" style="display:none;">
+                                    
+                                </div>
+                                {{-- ==================================================================================================== --}}
+	  			
 	  			<div class="tab-pane" id="academica" style="display:none;">
 	    			{{-- Informacion Academica --}}
 	  				<div class="form-group">
@@ -281,6 +288,9 @@
 			    		<label for="tutor" class="col-sm-3 control-label">¿Con quien vive el estudiante?</label>
 			   			<div class="col-sm-9">
 			   				<select class="form-control" id="tutor" name="tutor">
+                                                            <?php
+                                                            $tutor=Util::$tutor;
+                                                            ?>
 			   					@foreach ($tutor as $indice => $valor)
 							  	<option {{$estudiante->administrativa->whom_student_live==$indice?'selected':''}} value="{{$indice}}">{{$valor}}</option>
 								@endforeach
@@ -489,10 +499,10 @@ $(document).ready(function() {
 
 	$(document).on('click', '#cambio-check', function(){
 		if($(this).is(':checked')) $('#cambio-input').removeAttr('disabled');
-        else $('#cambio-input').attr('disabled','disabled');
+        else $('#cambio-input').attr('disabled','disabled');u
 	});
 
-	$(document).on('click', '#escogio-check', function(){
+	$(document).on('click', '#escoaio-check', function(){
 		if($(this).is(':checked')) $('#escogio-input').removeAttr('disabled');
         else $('#escogio-input').attr('disabled','disabled');  
 	});

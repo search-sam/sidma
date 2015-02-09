@@ -44,7 +44,7 @@
 	    <!-- Bootstrap core JavaScript
 	    ================================================== -->
 	    <script src="{{URL::to('/')}}/js/jquery.min.js"></script>
-	    <script src="{{URL::to('/')}}/js/validate.js"></script>
+	    <script src="{{URL::to('/')}}/js/validate.min.js"></script>
 	    <!-- Placed at the end of the document so the pages load faster -->
 	    <script>
 			$('form').validate();

@@ -13,6 +13,7 @@ class LoginController extends BaseController {
 		$usuario = Usuario::where('user', '=', $input['usuario'])->where('password', '=', $input['contra'])->get();
         if (!empty($usuario)) 
         {
+            
         	if ($usuario[0]->estudiante->student_state == 1) 
         	{
 	        	foreach ($usuario[0] as $key => $value) 

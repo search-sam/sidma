@@ -44,3 +44,7 @@ Route::any('padre/tutor', 'FamiliaController@tutoragregar');
 
 /* MatriculaController */
 Route::any('matricula/inicio', 'MatriculaController@inicio');
+//Route::any('estudiante/inicio', 'MatriculaController@inicio');
+
+/* AdmonAcademicaController */
+Route::any('admonacademica/inicio','AdmonacademicaController@inicio');
