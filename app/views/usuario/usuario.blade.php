@@ -74,7 +74,7 @@
 
               <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-success" id="asignar" data-dismiss="modal" ref="{{action('UsuarioController@crear')}}">Continuar</button>
+                <button type="button" class="btn btn-success" id="asignar" data-dismiss="modal" ref="{{action('UsuarioController@nuevo')}}">Continuar</button>
               </div>
         </div>
       </div>
