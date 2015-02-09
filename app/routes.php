@@ -48,3 +48,7 @@ Route::any('matricula/inicio', 'MatriculaController@inicio');
 
 /* AdmonAcademicaController */
 Route::any('admonacademica/inicio','AdmonacademicaController@inicio');
+
+/* UsuarioController*/
+Route::any('usuario/inicio','UsuarioController@inicio');
+Route::any('usuario/nuevo','UsuarioController@nuevo');

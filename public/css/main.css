@@ -9,8 +9,9 @@
 
 /*
 body {
-  background-color: #f2f2f2;
+    background-color: #f2f2f2;
     font-family: 'Lato', sans-serif;
+    src: url(public/fonts/Lato.ttf);
     font-weight: 300;
     font-size: 16px;
     color: #555;
@@ -22,6 +23,7 @@ body {
 /* Titles */
 /*h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
+    src: url(public/fonts/Lato.ttf);
     font-weight: 300;
     color: #333;
 }
@@ -93,7 +95,7 @@ a:after {
 /*.navbar-default {
 	background-color: #FFF;
 	border-color: transparent;
-	
+
 }
 
 .nav.navbar-nav.navbar-right{
@@ -129,7 +131,7 @@ a:after {
 
 i {
 	margin: 8px;
-	color: #3498db; 
+	color: #3498db;
 }
 
 .logo{
@@ -138,7 +140,7 @@ i {
 	line-height: 31px;
 	margin: 0px 0 7px;
 	color: #333;
-	
+
 }
 
 /* HeaderWrap */
@@ -149,7 +151,7 @@ i {
 	background-position: center center;
 	min-height: 430px;
 	width: 100%;
-	
+
     -webkit-background-size: 100%;
     -moz-background-size: 100%;
     -o-background-size: 100%;
@@ -232,7 +234,7 @@ i {
 	border-radius: 2px;
 	box-shadow: 8px 8px 0px rgba(0,0,0,0.1);
 	font-size: 20px;
-	
+
 }
 
 #cropContainerHeaderButton:hover {
@@ -240,7 +242,7 @@ i {
 }
 
 .optionsDiv{
-	
+
 	border-radius:2px;
 	position:absolute;
 }
@@ -317,7 +319,7 @@ i {
 #web_by {position:absolute; right:10px; font-size:10px; color:#aaa; padding:13px; cursor:pointer;  }
 #web_by  label{  display:none; position:absolute; right:5px; top:-32px; z-index:10000; font-size:10px; color:#ffa200; padding:10px 9px; cursor:pointer; width:60px; height:40px; background-image:url('../img/jobotic_bubble.png'); background-repeat:no-repeat; }
 #jobotic {position:fixed; right:-100px; bottom:-3px; font-size:10px; color:#aaa; padding:13px; cursor:pointer; z-index:9999;}
-	
+
 #kontakt { float:left; width:100%; height:auto; z-index:450; position:relative; }
 #kontakt_bg { position:absolute; top:0; left:0; width:100%; height:auto; z-index:450;}
 #copyright {float:left; width:100%; height:45px; background-color:#FFF; margin-top:6px;}

@@ -10,13 +10,14 @@ class LoginController extends BaseController {
 	public function acceso()
 	{
 		$input   = Input::all();
+
 		$usuario = Usuario::where('user', '=', $input['usuario'])->where('password', '=', $input['contra'])->get();
-        if (!empty($usuario)) 
+        if (!empty($usuario))
         {
-            
-        	if ($usuario[0]->estudiante->student_state == 1) 
+
+        	if ($usuario[0]->estudiante->student_state == 1)
         	{
-	        	foreach ($usuario[0] as $key => $value) 
+	        	foreach ($usuario[0] as $key => $value)
 	        	{
 	        		Session::put('usuario.'.$key, $value);
 	        	}
@@ -24,8 +25,8 @@ class LoginController extends BaseController {
         	}
         	else
         		return Redirect::action('LoginController@login');
-        } 
-        else 
+        }
+        else
         {
             return Redirect::action('LoginController@login');
         }

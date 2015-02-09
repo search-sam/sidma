@@ -43,7 +43,7 @@
 @stop
 
 @section('js')
-<script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10-dev/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/jquery.dataTables.min.js"></script>
 <script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/datatables.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {

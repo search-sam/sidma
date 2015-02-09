@@ -1,6 +1,7 @@
 @extends('layouts.home')
 
 @section('css')
+<link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/datatable/datatables.css">
 @stop
 
 @section('side')
@@ -19,10 +20,6 @@
 	        	</tr>
 	      	</thead>
 	      	<tbody>
-                    <?php
-                 
-                   
-                    ?>
 	      		@foreach ($matriculas as $estudiante)
 	        	<tr>
 	          		<td>{{$estudiante->student_card}}</td>
@@ -44,4 +41,23 @@
 	    </table>
 	</div>
 </div>
+@stop
+
+@section('js')
+<script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/datatables.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#example').dataTable();
+
+	$(document).on('click', '.edit', function(){
+		$(location).attr('href', $(this).attr('ref'));
+	});
+
+	$(document).on('click', '.dihab', function(){
+		var id = $(this).attr('id');
+		$('#action').attr('href', "{{action('EstudianteController@deshabilitar')}}"+"?id="+id+"&val={{$estudiante->student_state==1?0:1}}");
+	});
+});
+</script>
 @stop

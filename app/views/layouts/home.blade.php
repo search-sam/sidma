@@ -48,8 +48,9 @@
 		          		{{-- if ((Session::get('usuario.cod_profile') == 1) or (Session::get('usuario.cod_profile') == 2)) --}}
 		          		<li><a href="{{action('MatriculaController@inicio')}}">Matricula</a></li>
 		            	<li><a href="{{action('EstudianteController@inicio')}}">Estudiante</a></li>
-                                <li><a href="{{action('AdmonacademicaController@inicio')}}">Admón. Académica</a></li>
+                        <li><a href="{{action('AdmonacademicaController@inicio')}}">Acad&eacute;mico</a></li>
 		            	<li><a href="{{action('FamiliaController@inicio')}}">Familia</a></li>
+                        <li><a href="{{action('UsuarioController@inicio')}}">Usuario</a></li>
 		            	{{-- @endif --}}
 		            	<li><a href="{{action('LoginController@salir')}}">Salir</a></li>
 		          	</ul>

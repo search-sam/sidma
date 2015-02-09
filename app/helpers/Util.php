@@ -1,5 +1,5 @@
 <?php
- 
+
 class Util
 {
 	private static $charset = array(
@@ -63,7 +63,7 @@ class Util
 		'9' => 'Septiembre',
 		'10' => 'Octubre',
 		'11' => 'Noviembre',
-		'12' => 'Diciembre' 
+		'12' => 'Diciembre'
 	);
 
 	public static $tutor = array(
@@ -111,21 +111,30 @@ class Util
 		'9' => 'Vendedor(a)'
 	);
 
+    public static $perfiles = array(
+        '2' => 'Director',
+        '3' => 'Secretaria',
+        '4' => 'Coordinador',
+        '5' => 'Docente Guia',
+        '6' => 'Docente',
+        '8' => 'Tutor'
+    );
+
 	// Genera carnet de estudiante
-	public static function card_generate( $carnet, $input ) 
+	public static function card_generate( $carnet, $input )
 	{
-		if (is_null($carnet)) 
+		if (is_null($carnet))
 			$carnet = date('Y').'-'.ucfirst($input['apellido1'][0]).ucfirst($input['apellido2'][0]).'001';
 		else {
-            if ($carnet[9] < 9) 
+            if ($carnet[9] < 9)
             	$carnet[9] = 1 + (int)  $carnet[9];
-			elseif ($carnet[8] < 9) 
+			elseif ($carnet[8] < 9)
 			{
 				$carnet[8] = 1 + (int) $carnet[8];
 				$carnet[9] = 0;
-			} 
-			elseif ($carnet[7] < 9) 
-			{ 
+			}
+			elseif ($carnet[7] < 9)
+			{
 				$carnet[7] = 1 + (int) $carnet[7];
 				$carnet[8] = 0;
 				$carnet[9] = 0;
@@ -137,19 +146,19 @@ class Util
 	// Genera identificador de familia
 	public static function family_identifier( $identificador, $input )
 	{
-		if (is_null($identificador)) 
+		if (is_null($identificador))
 			$identificador = date('Y').'-F'.ucfirst($input['apellido1'][0]).ucfirst($input['apellido2'][0]).'0'.'0'.'1';
-		else 
+		else
 		{
-			if ($identificador[10] < 9) 
+			if ($identificador[10] < 9)
 				$identificador[10] = 1 + (int) $identificador[10];
-			elseif ($identificador[9] < 9) 
-			{ 
+			elseif ($identificador[9] < 9)
+			{
 				$identificador[9] = 1 + (int) $identificador[9];
-				$identificador[10] = 0; 
-			} 
-			elseif ($identificador[8] < 9) 
-			{ 
+				$identificador[10] = 0;
+			}
+			elseif ($identificador[8] < 9)
+			{
 				$identificador[8] = 1 + (int) $identificador[8];
 				$identificador[9] = 0;
 				$identificador[10] = 0;
@@ -177,7 +186,7 @@ class Util
 	{
 		if (!is_null($cadena))
 		{
-			foreach (self::$charset as $indice => $valor) 
+			foreach (self::$charset as $indice => $valor)
 			{
 				$cadena = str_replace($indice, $valor, trim($cadena));
 			}
@@ -209,7 +218,7 @@ class Util
 	{
 		$archivo = fopen('/var/www/html/sidma/public/estudiante/adds.json', 'r');
 		$datos = '';
-		while(!feof($archivo)) 
+		while(!feof($archivo))
 		{
 			$datos = $datos.fgets($archivo);
 		}
@@ -222,18 +231,18 @@ class Util
 	{
 		$archivo = fopen('/var/www/html/sidma/public/estudiante/adds.json', 'r');
 		$datos = '';
-		while(!feof($archivo)) 
+		while(!feof($archivo))
 		{
 			$datos = $datos.fgets($archivo);
 		}
 		fclose($archivo);
 		$objeto = json_decode($datos);
-		foreach ($objeto as $indice => $contenido) 
+		foreach ($objeto as $indice => $contenido)
 		{
 			if($indice==$cadena)
-			{ 
-				return $contenido; 
-				break; 
+			{
+				return $contenido;
+				break;
 			}
 		}
 	}
@@ -244,16 +253,16 @@ class Util
 		$archivo = fopen('/var/www/html/sidma/public/estudiante/adds.json', 'r');
 		$datos = array();
 		$i = 0;
-		while(!feof($archivo)) 
+		while(!feof($archivo))
 		{
 			$datos[$i] = fgets($archivo);
 			$i++;
 		}
 		fclose($archivo);
 
-		for ($i=0; $i < count($datos); $i++) { 
+		for ($i=0; $i < count($datos); $i++) {
 			$cadena = trim($datos[$i]);
-			if(count($datos)>=3) 
+			if(count($datos)>=3)
 			{
 				if($i>0 AND $i<(count($datos)-1))
 					if (strpos($cadena, ',')===false) $coma = $cadena.',';
@@ -262,7 +271,7 @@ class Util
 					$coma = $cadena;
 				$datos[$i] = $coma;
 			}
-			else 
+			else
 				$datos[$i] = $cadena;
 		}
 		$datos[count($datos)-1] = '"'.$indice.'":"'.$contenido.'"';
@@ -286,8 +295,8 @@ class Util
 	{
 		if (empty($cadena) OR is_null($cadena) OR !isset($cadena))
 			return NULL;
-		else 
+		else
 			return $cadena;
 	}
-    
+
 }
