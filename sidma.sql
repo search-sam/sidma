@@ -470,15 +470,15 @@ CREATE TABLE IF NOT EXISTS `profile` (
 -- Volcado de datos para la tabla `profile`
 --
 
-INSERT INTO `profile` (`cod_profile`, `profile_name`, `privilege`) VALUES
-(1, 'admin', 'crud'),
-(2, 'director', 'crud'),
-(3, 'secretaria', 'cru'),
-(4, 'coordinador', 'crud'),
-(5, 'docente guia', 'cru'),
-(6, 'docente', 'cru'),
-(7, 'estudiante', 'cr'),
-(8, 'tutor', 'cr');
+-- INSERT INTO `profile` (`cod_profile`, `profile_name`, `privilege`) VALUES
+-- (1, 'admin', 'crud'),
+-- (2, 'director', 'crud'),
+-- (3, 'secretaria', 'cru'),
+-- (4, 'coordinador', 'crud'),
+-- (5, 'docente guia', 'cru'),
+-- (6, 'docente', 'cru'),
+-- (7, 'estudiante', 'cr'),
+-- (8, 'tutor', 'cr');
 
 -- --------------------------------------------------------
 
