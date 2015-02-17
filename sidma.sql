@@ -277,8 +277,8 @@ CREATE TABLE IF NOT EXISTS `family` (
 -- Volcado de datos para la tabla `family`
 --
 
-INSERT INTO `family` (`cod_family`, `family_identity`, `cod_user`) VALUES
-(1, NULL, 1);
+-- INSERT INTO `family` (`cod_family`, `family_identity`, `cod_user`) VALUES
+-- (1, NULL, 1);
 
 -- --------------------------------------------------------
 
