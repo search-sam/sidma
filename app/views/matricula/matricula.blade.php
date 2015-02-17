@@ -31,7 +31,7 @@
 	          		</td>
 	          		<td>
 	          			<div class="btn-group">
-						  	<button type="button" class="btn btn-default edit" ref="{{action('EstudianteController@editar').'?id='.$estudiante->cod_student}}"><span class="glyphicon glyphicon-edit"></span></button>
+						  	<button type="button" class="btn btn-default edit" ref="{{action('MatriculaController@editar').'?id='.$matricula->cod_student}}"><span class="glyphicon glyphicon-edit"></span></button>
 						</div>
 					</td>
 	        	</tr>

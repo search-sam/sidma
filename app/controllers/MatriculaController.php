@@ -10,4 +10,9 @@ class MatriculaController extends BaseController {
 		return View::make('matricula.matricula')->with('matriculas', $matriculas);
 	}
 
+	public function editar()
+	{
+
+	}
+
 }
