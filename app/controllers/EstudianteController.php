@@ -5,7 +5,7 @@ class EstudianteController extends BaseController {
 	public function inicio()
 	{
 		$estudiantes = Estudiante::join('user', 'user.cod_user', '=', 'student.cod_user')
-			->where('cod_profile','!=',1)->get();
+			->where('cod_profile','==',7)->get();
 
 		return View::make('estudiante.estudiante')->with('estudiantes', $estudiantes);
 	}
@@ -35,7 +35,6 @@ class EstudianteController extends BaseController {
 			$identity = $input['familia'];
 		else
 		{
-			//$identificador 	= DB::table('family')->select('family_identity')->orderBy('cod_family', 'desc')->first();
 			$identificador 	= DB::select('SELECT `family_identity` FROM `family` ORDER BY `cod_family` DESC LIMIT 1');
 			$identity 		= Util::family_identifier($identificador[0]->family_identity, $input);
 		}
