@@ -600,11 +600,11 @@ CREATE TABLE IF NOT EXISTS `shift` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO ` shift` (`cod_shift`, `shift_name`) VALUES
-(1, 'Matutino'),
-(2, 'Vespertino'),
-(3, 'Sabatino'),
-(4, 'Dominical');
+-- INSERT INTO ` shift` (`cod_shift`, `shift_name`) VALUES
+-- (1, 'Matutino'),
+-- (2, 'Vespertino'),
+-- (3, 'Sabatino'),
+-- (4, 'Dominical');
 -- --------------------------------------------------------
 
 --
