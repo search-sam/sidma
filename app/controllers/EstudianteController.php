@@ -4,9 +4,8 @@ class EstudianteController extends BaseController {
 
 	public function inicio()
 	{
-		$estudiantes = Estudiante::join('user', 'user.cod_user', '=', 'student.cod_user')
-			->where('cod_profile','==',7)->get();
-
+		$estudiantes = Estudiante::join('user', 'user.cod_user', '=', 'student.cod_user')->where('user.cod_profile','=',7)->get();
+		
 		return View::make('estudiante.estudiante')->with('estudiantes', $estudiantes);
 	}
 
