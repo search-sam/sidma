@@ -54,7 +54,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-				<a href="{{action('EstudianteController@deshabilitar')}}" class="btn btn-primary" id="action">{{$estudiante->student_state==1?'Deshabilitar':'Habilitar'}}</a>
+				<a href="{{action('EstudianteController@deshabilitar')}}" class="btn btn-primary" id="action">{{-- $estudiante->student_state==1?'Deshabilitar':'Habilitar' --}}</a>
 			</div>
 		</div>
 	</div>
