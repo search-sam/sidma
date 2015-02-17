@@ -54,10 +54,18 @@ $(document).ready(function() {
 		$(location).attr('href', $(this).attr('ref'));
 	});
 
-	/*$(document).on('click', '.dihab', function(){
+	$(document).on('click', '.dihab', function(){
 		var id = $(this).attr('id');
-		$('#action').attr('href', "{{action('EstudianteController@deshabilitar')}}"+"?id="+id+"&val={{$estudiante->student_state==1?0:1}}");
-	});*/
+		var estudiante;
+		if ("{{$estudiante}}" != null)
+			alert("&val={{$estudiante->student_state==1?0:1}}");
+			//estudiante = "&val={{$estudiante->student_state==1?0:1}}";
+		} else {
+			alert("variable vacia");
+			//estudiante = "";
+		}
+		//$('#action').attr('href', "{{action('EstudianteController@deshabilitar')}}"+"?id="+id+"&val={{$estudiante->student_state==1?0:1}}");
+	});
 });
 </script>
 @stop
