@@ -600,7 +600,7 @@ CREATE TABLE IF NOT EXISTS `shift` (
 -- Volcado de datos para la tabla `user`
 --
 
-INSERT INTO `shift` (`cod_shift`, `shift_name`) VALUES
+INSERT INTO ` shift` (`cod_shift`, `shift_name`) VALUES
 (1, 'Matutino'),
 (2, 'Vespertino'),
 (3, 'Sabatino'),
@@ -635,6 +635,13 @@ CREATE TABLE IF NOT EXISTS `student` (
   KEY `cod_family` (`cod_family`),
   KEY `cod_user` (`cod_user`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Volcado de datos para la tabla `student`
+--
+
+INSERT INTO `student` (`cod_student`, `student_card`, `student_photo`, `cod_family`, `first_name`, `second_name`, `first_last_name`, `second_last_name`, `birth_date`, `birth_country`, `birth_city`, `student_gender`, `city_live`, `neighborhood_live`, `address_detail`, `house_number`, `email`, `student_state`, `cod_user`) VALUES
+(1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1);
 
 -- --------------------------------------------------------
 
