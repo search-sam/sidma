@@ -74,7 +74,7 @@ $(document).ready(function() {
 
 	//$(document).on('click', '.dihab', function(){
 	//	var id = $(this).attr('id');
-	//	$('#action').attr('href', "{{action('EstudianteController@deshabilitar')}}"+"?id="+id+"&val={{$estudiante->student_state==1?0:1}}");
+	//	$('#action').attr('href', "{{action('EstudianteController@deshabilitar')}}"+"?id="+id+"&val={{-- $estudiante->student_state==1?0:1 --}}");
 	//});
 
 });
