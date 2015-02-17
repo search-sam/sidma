@@ -35,33 +35,30 @@
 						</div>
 					</td>
 	        	</tr>
-
-				<!-- Modal -->
-				<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-sm">
-						<div class="modal-content">
-							<div class="modal-header">
-								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-								<h4 class="modal-title" id="mySmallModalLabel">{{$estudiante->student_state==1?'Deshabilitar':'Habilitar'}}</h4>
-							</div>
-							<div class="modal-body">
-								¿Seguro que desea {{$estudiante->student_state==1?'deshabilitar':'habilitar'}} al estudiante?
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-								<a href="{{action('EstudianteController@deshabilitar')}}" class="btn btn-primary" id="action">{{$estudiante->student_state==1?'Deshabilitar':'Habilitar'}}</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				
 	        	@endforeach
 	      	</tbody>
 	    </table>
 	 </div>
 </div>
 
-
+<!-- Modal -->
+<!-- <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-sm">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+				<h4 class="modal-title" id="mySmallModalLabel">{{$estudiante->student_state==1?'Deshabilitar':'Habilitar'}}</h4>
+			</div>
+			<div class="modal-body">
+				¿Seguro que desea {{$estudiante->student_state==1?'deshabilitar':'habilitar'}} al estudiante?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+				<a href="{{action('EstudianteController@deshabilitar')}}" class="btn btn-primary" id="action">{{$estudiante->student_state==1?'Deshabilitar':'Habilitar'}}</a>
+			</div>
+		</div>
+	</div>
+</div> -->
 @stop
 
 @section('js')
@@ -75,10 +72,10 @@ $(document).ready(function() {
 		$(location).attr('href', $(this).attr('ref'));
 	});
 
-	$(document).on('click', '.dihab', function(){
-		var id = $(this).attr('id');
-		$('#action').attr('href', "{{action('EstudianteController@deshabilitar')}}"+"?id="+id+"&val={{$estudiante->student_state==1?0:1}}");
-	});
+	//$(document).on('click', '.dihab', function(){
+	//	var id = $(this).attr('id');
+	//	$('#action').attr('href', "{{action('EstudianteController@deshabilitar')}}"+"?id="+id+"&val={{$estudiante->student_state==1?0:1}}");
+	//});
 
 });
 </script>
