@@ -277,8 +277,8 @@ CREATE TABLE IF NOT EXISTS `family` (
 -- Volcado de datos para la tabla `family`
 --
 
--- INSERT INTO `family` (`cod_family`, `family_identity`, `cod_user`) VALUES
--- (1, NULL, 1);
+INSERT INTO `family` (`cod_family`, `family_identity`, `cod_user`) VALUES
+(1, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -339,21 +339,21 @@ CREATE TABLE IF NOT EXISTS `level` (
 -- Volcado de datos para la tabla `level`
 --
 
--- INSERT INTO `level` (`cod_level`, `level_name`) VALUES
--- (1, 'PK-2'),
--- (2, 'PK-3'),
--- (3, 'K'),
--- (4, '1'),
--- (5, '2'),
--- (6, '3'),
--- (7, '4'),
--- (8, '5'),
--- (9, '6'),
--- (10, '7'),
--- (11, '8'),
--- (12, '9'),
--- (13, '10'),
--- (14, '11');
+INSERT INTO `level` (`cod_level`, `level_name`) VALUES
+(1, 'PK-2'),
+(2, 'PK-3'),
+(3, 'K'),
+(4, '1'),
+(5, '2'),
+(6, '3'),
+(7, '4'),
+(8, '5'),
+(9, '6'),
+(10, '7'),
+(11, '8'),
+(12, '9'),
+(13, '10'),
+(14, '11');
 
 -- --------------------------------------------------------
 
@@ -470,15 +470,15 @@ CREATE TABLE IF NOT EXISTS `profile` (
 -- Volcado de datos para la tabla `profile`
 --
 
--- INSERT INTO `profile` (`cod_profile`, `profile_name`, `privilege`) VALUES
--- (1, 'admin', 'crud'),
--- (2, 'director', 'crud'),
--- (3, 'secretaria', 'cru'),
--- (4, 'coordinador', 'crud'),
--- (5, 'docente guia', 'cru'),
--- (6, 'docente', 'cru'),
--- (7, 'estudiante', 'cr'),
--- (8, 'tutor', 'cr');
+INSERT INTO `profile` (`cod_profile`, `profile_name`, `privilege`) VALUES
+(1, 'admin', 'crud'),
+(2, 'director', 'crud'),
+(3, 'secretaria', 'cru'),
+(4, 'coordinador', 'crud'),
+(5, 'docente guia', 'cru'),
+(6, 'docente', 'cru'),
+(7, 'estudiante', 'cr'),
+(8, 'tutor', 'cr');
 
 -- --------------------------------------------------------
 
@@ -600,11 +600,11 @@ CREATE TABLE IF NOT EXISTS `shift` (
 -- Volcado de datos para la tabla `user`
 --
 
--- INSERT INTO ` shift` (`cod_shift`, `shift_name`) VALUES
--- (1, 'Matutino'),
--- (2, 'Vespertino'),
--- (3, 'Sabatino'),
--- (4, 'Dominical');
+INSERT INTO `shift` (`cod_shift`, `shift_name`) VALUES
+(1, 'Matutino'),
+(2, 'Vespertino'),
+(3, 'Sabatino'),
+(4, 'Dominical');
 -- --------------------------------------------------------
 
 --
