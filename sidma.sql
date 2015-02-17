@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `family` (
   `cod_user` int(6) DEFAULT NULL,
   PRIMARY KEY (`cod_family`),
   KEY `cod_user` (`cod_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `family`
@@ -333,7 +333,7 @@ CREATE TABLE IF NOT EXISTS `level` (
   `cod_level` int(2) NOT NULL AUTO_INCREMENT,
   `level_name` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`cod_level`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `level`
@@ -464,7 +464,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `profile_name` varchar(20) CHARACTER SET utf8 DEFAULT NULL,
   `privilege` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`cod_profile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `profile`
@@ -582,7 +582,7 @@ CREATE TABLE IF NOT EXISTS `school_year` (
   `surcharge_rate` int(2) DEFAULT NULL,
   `surcharge_limit_days` int(2) DEFAULT NULL,
   PRIMARY KEY (`cod_school_year`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -634,7 +634,7 @@ CREATE TABLE IF NOT EXISTS `student` (
   PRIMARY KEY (`cod_student`),
   KEY `cod_family` (`cod_family`),
   KEY `cod_user` (`cod_user`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -745,7 +745,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `cod_profile` int(3) DEFAULT NULL,
   PRIMARY KEY (`cod_user`),
   KEY `cod_profile` (`cod_profile`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=89 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
 -- Volcado de datos para la tabla `user`
