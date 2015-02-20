@@ -99,9 +99,13 @@
 @stop
 
 @section('js')
+<<<<<<< HEAD
 
 <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10-dev/js/jquery.dataTables.min.js"></script>
 
+=======
+<script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/jquery.dataTables.min.js"></script>
+>>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
 <script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/datatables.js"></script>
 <script type="text/javascript" language="javascript" src="{{URL::to('/')}}/js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript">

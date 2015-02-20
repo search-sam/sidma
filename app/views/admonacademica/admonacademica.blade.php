@@ -17,6 +17,7 @@
 @stop
 
 @section('content')
+<<<<<<< HEAD
 
 <div id="lectiveyear" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header" id="hschool_year">Año lectivo 
@@ -272,3 +273,19 @@ $(document).ready(function() {
 });
 </script>
 @stop
+=======
+<div id="inicio" class="col-sm-offset-2 col-sm-8 col-md-offset-1 col-md-10 main">
+    <h1 class="page-header">Año Lectivo</h1>
+</div>
+@stop
+
+@section('js')
+<script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/datatables.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#example').dataTable();
+});
+</script>
+@stop
+>>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe

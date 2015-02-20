@@ -59,7 +59,7 @@ Route::any('padre/tutor', 'FamiliaController@tutoragregar');
 
 /* MatriculaController */
 Route::any('matricula/inicio', 'MatriculaController@inicio');
-//Route::any('estudiante/inicio', 'MatriculaController@inicio');
+Route::any('matricula/editar', 'MatriculaController@editar');
 
 /*YearController */
 Route::any('year/inicio', 'YearController@inicio');
@@ -117,6 +117,13 @@ ROute::any('grupo/neworedit','GrupoController@neworedit');//Esta ruta es para cr
 
 /* AdmonAcademicaController */
 Route::any('admonacademica/inicio','AdmonacademicaController@inicio');
+<<<<<<< HEAD
 Route::any('admonacademica/periodos','AdmonacademicaController@periodos');
 
 Route::get('archive', array('before' => 'require_login', 'uses' => 'HomeController@archive'));
+=======
+
+/* UsuarioController*/
+Route::any('usuario/inicio','UsuarioController@inicio');
+Route::any('usuario/nuevo','UsuarioController@nuevo');
+>>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe

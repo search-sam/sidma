@@ -1,6 +1,7 @@
 @extends('layouts.home')
 
 @section('css')
+<link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/datatable/datatables.css">
 @stop
 
 @section('side')
@@ -19,23 +20,18 @@
 	        	</tr>
 	      	</thead>
 	      	<tbody>
-                    <?php
-                 
-                   
-                    ?>
-	      		@foreach ($matriculas as $estudiante)
+	      		@foreach ($matriculas as $matricula)
 	        	<tr>
-	          		<td>{{$estudiante->student_card}}</td>
+	          		<td>{{$matricula->student_card}}</td>
 	          		<td>
-	          			{{$estudiante->first_name}}
-	          			<?= empty($estudiante->second_name)?'':$estudiante->second_name; ?>
-	          			{{$estudiante->first_last_name}}
-	          			<?= empty($estudiante->second_last_name)?'':$estudiante->second_last_name; ?>
+	          			{{$matricula->first_name}}
+	          			<?= empty($matricula->second_name)?'':$matricula->second_name; ?>
+	          			{{$matricula->first_last_name}}
+	          			<?= empty($matricula->second_last_name)?'':$matricula->second_last_name; ?>
 	          		</td>
 	          		<td>
 	          			<div class="btn-group">
-						  	<button type="button" class="btn btn-default edit" ref="{{action('EstudianteController@editar').'?id='.$estudiante->cod_student}}"><span class="glyphicon glyphicon-edit"></span></button>
-  							{{-- <button type="button" class="btn btn-default dihab" id="{{$estudiante->cod_student}}" data-toggle="modal" data-target=".bs-example-modal-sm"><span class="glyphicon glyphicon-{{$estudiante->student_state==1?'ok':'remove'}}"></button> --}}
+						  	<button type="button" class="btn btn-default edit" ref="{{action('MatriculaController@editar').'?id='.$matricula->cod_student}}"><span class="glyphicon glyphicon-edit"></span></button>
 						</div>
 					</td>
 	        	</tr>
@@ -44,4 +40,19 @@
 	    </table>
 	</div>
 </div>
+@stop
+
+@section('js')
+<script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/datatables.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#example').dataTable();
+
+	$(document).on('click', '.edit', function(){
+		$(location).attr('href', $(this).attr('ref'));
+	});
+
+});
+</script>
 @stop
