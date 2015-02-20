@@ -10,10 +10,13 @@ class Familia extends Eloquent {
     {
         return $this->belongsTo('Estudiante', 'cod_family');
     }
+     public function detallefamilia(){
+         return $this->hasMany('DetalleFamilia','cod_family');
+     }
 
     public function usuario()
     {
-        return $this->hasMany('Usuario', 'cod_user', 'cod_family');
+        return $this->belongsTo('Usuario', 'cod_family', 'cod_user');
     }
 
     public function tutor()

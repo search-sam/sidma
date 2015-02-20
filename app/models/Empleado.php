@@ -6,14 +6,18 @@ class Empleado extends Eloquent {
 	protected $primaryKey = 'cod_employee';
 	public $timestamps = false;
 
-	/*public function familia()
-    {
-        return $this->hasOne('Familia', 'cod_family', 'cod_student');
-    }
-
-    public function usuario()
-    {
-        return $this->hasOne('Usuario', 'cod_family', 'cod_user');
-    }*/
+        public function getEmployeeNameAttribute(){
+            return $this->attributes['first_name'].' '.$this->attributes['first_last_name'];
+        }
+        
+	public function usuario(){
+           return $this->belongsTo('Usuario', 'cod_employee', 'cod_user');
+        }
+        public function docente(){
+           return $this->hasOne('Docente', 'cod_employee');
+        }
+         public function cargo(){
+           return $this->belongsTo('Empleado', 'cod_employee','cod_employment');
+        }
 
 }

@@ -37,21 +37,11 @@ body {
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
+
 .form-signin {
 	background-image: url('../img/logo-V.png');
 	background-repeat: no-repeat;
 	background-position: center 50%;
-}
-#user {
-	margin-top:130px;
-  	margin-bottom: -1px;
- 	border-bottom-right-radius: 0;
-  	border-bottom-left-radius: 0;
 }
 
 .bs-callout-danger {

@@ -20,7 +20,9 @@
 <div id="inicio" class="col-sm-9 col-md-10 main">
 	<h1 class="page-header">Informaci&oacute;n del Estudiante</h1>
 	<form action="{{action('EstudianteController@guardardatos')}}" method="post" class="form-horizontal" role="form">
-		<input value="{{$id}}" type="text" style="display:none" name="estudiante_id">
+            <input type="hidden" name="cod_family" id="cod_family" value="{{$cod_family}}"/>
+            <input type="hidden" name="newfamily" id="newfamily" value="{{$newfamily}}"/>
+            <input value="{{$id}}" type="text" style="display:none" name="estudiante_id">
 		{{-- Informacion Academica --}}
 		<div id="acedemica" class="panel panel-default">
 			<div class="panel-heading">

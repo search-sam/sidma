@@ -6,10 +6,11 @@ class Trabajo extends Eloquent {
 	protected $primaryKey = 'cod_employment_information';
 	public $timestamps = false;
 
-	public function tutor()
-    {
-        return $this->belongsTo('Tutor');
-    }
+	
+        public function detallefamilia(){
+            return $this->belongsTo('DetalleFamilia','employment_information','cod_family_detail');
+        }
+        
 
     
 }

@@ -19,7 +19,7 @@
 @section('content')
 <div id="inicio" class="col-sm-9 col-md-10 main">
 	<h1 class="page-header">Nuevo Tutor</h1>
-	<form action="{{action('FamiliaController@padreguardar')}}" method="post" class="form-horizontal" role="form">
+	<form action="{{action('FamiliaController@tutoragregar')}}?return=false&familia_id{{$familia_id}}" method="post" class="form-horizontal" role="form">
 
 		<input type="text" id="familia" name="familia_id" value="{{$familia_id}}" style="display:none;">
 
@@ -234,8 +234,8 @@
 
   		<div id="guardar" class="form-group">
     		<div class="col-sm-12 ">
-    			<button type="button" ref="{{action('FamiliaController@tutoragregar')}}" class="btn btn-default" id="agregar">Agregar Nuevo</button>
-      			<button type="submit" class="btn btn-primary pull-right">Continuar</button>
+    			<button type="button" ref="{{action('FamiliaController@tutoragregar')}}?return=true&familia_id={{$familia_id}}" class="btn btn-primary" id="agregar">Guardar y agregar Nuevo tutor</button>
+      			<button type="submit" class="btn btn-info pull-right">Continuar</button>
     		</div>
   		</div>
 	</form>

@@ -221,7 +221,8 @@ div.DTFC_LeftBodyWrapper tbody tr:first-child th,
 div.DTFC_LeftBodyWrapper tbody tr:first-child td {
     border-top: none;
 }
- 
+ .trselect{ cursor: pointer;}
+ .trselect:hover{color:#3498db;text-decoration: underline;}
 div.DTFC_RightFootWrapper table,
 div.DTFC_LeftFootWrapper table {
     border-top: none;

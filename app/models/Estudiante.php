@@ -6,13 +6,11 @@ class Estudiante extends Eloquent {
 	protected $primaryKey = 'cod_student';
 	public $timestamps = false;
 
-	public function familia()
-    {
-    }
+
 
     public function usuario()
     {
-    	return $this->belongsTo('Usuario', 'cod_user', 'cod_student');
+    	return $this->belongsTo('Usuario', 'cod_student', 'cod_user');
     }
 
     public function academica()

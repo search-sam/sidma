@@ -2665,6 +2665,7 @@ input[type="button"].btn-block {
 .glyphicon-info-sign:before {
   content: "\e086";
 }
+
 .glyphicon-screenshot:before {
   content: "\e087";
 }
@@ -2991,6 +2992,9 @@ input[type="button"].btn-block {
 }
 .glyphicon-tree-deciduous:before {
   content: "\e200";
+}
+.glyphicon-education:before {
+  content: "\e233";
 }
 .caret {
   display: inline-block;
@@ -5783,4 +5787,5 @@ button.close {
     display: none !important;
   }
 }
+
 /*# sourceMappingURL=bootstrap.css.map */
