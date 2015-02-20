@@ -5,7 +5,7 @@ class CargoController extends BaseController {
     public function inicio() {
         $cargos = Cargo::all();
         return View::make('cargo.cargo')
-                        ->with('cargos', $cargos);
+            ->with('cargos', $cargos);
     }
 
     public function editar() {
@@ -29,8 +29,8 @@ class CargoController extends BaseController {
         $cargo->description = $input['descripcion'];
 
         $cargo->save();
-     
-      
+
+
         return Redirect::action('EmpleadoController@inicio');
     }
 

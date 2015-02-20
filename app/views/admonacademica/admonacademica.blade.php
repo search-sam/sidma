@@ -10,17 +10,15 @@
         <li><a href="#lectiveyear"><b>Año lectivo</b></a></li>
         <li><a href="#shifts"><b>Turnos</b></a></li>
         <li><a href="#classrooms"><b>Aula de clases</b></a></li>
-        <li><a href="#levels"><b>Niveles</b></a></li>	
+        <li><a href="#levels"><b>Niveles</b></a></li>
         <li><a href="#subjects"><b>Materias </b></a></li>
     </ul>
 </div>
 @stop
 
 @section('content')
-<<<<<<< HEAD
-
 <div id="lectiveyear" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-    <h1 class="page-header" id="hschool_year">Año lectivo 
+    <h1 class="page-header" id="hschool_year">Año lectivo
         <button data-toggle="modal" data-target="#NewOrEditModal" id="NewYear"  class="btn btn-success">Nuevo año lectivo</button></h1>
     <div class="table-responsive">
         <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="example">
@@ -153,13 +151,14 @@
         </table>
     </div>
 </div>
+
 <div class="modal fade" id="DelClassroomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
-
 </div>
+
 <div class="modal fade" id="NewOrEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
 </div>
+@stop
+
 
 @section('js')
 <script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10-dev/js/jquery.dataTables.min.js"></script>
@@ -266,26 +265,7 @@ $(document).ready(function() {
     });
     $(".trselect").live("click", function() {
         var cod_school_year = $(this).parent().attr("id");
-
     });
-
-
 });
 </script>
 @stop
-=======
-<div id="inicio" class="col-sm-offset-2 col-sm-8 col-md-offset-1 col-md-10 main">
-    <h1 class="page-header">Año Lectivo</h1>
-</div>
-@stop
-
-@section('js')
-<script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/jquery.dataTables.min.js"></script>
-<script type="text/javascript" language="javascript" src="{{URL::to('/')}}/datatable/datatables.js"></script>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#example').dataTable();
-});
-</script>
-@stop
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe

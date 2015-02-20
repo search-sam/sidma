@@ -1,75 +1,6 @@
 <?php
-<<<<<<< HEAD
 
 class Util {
-=======
-
-class Util
-{
-	private static $charset = array(
-		'á' => '&aacute;',
-		'Á' => '&Aacute;',
-		'à' => '&agrave;',
-		'À'	=> '&Agrave;',
-		'ä' => '&auml;',
-		'Ä' => '&Auml;',
-		'â' => '&acirc;',
-		'Â' => '&Acirc;',
-		// --------------- //
-		'é' => '&eacute;',
-		'É' => '&Eacute;',
-		'è'	=> '&egrave;',
-		'È' => '&Egrave;',
-		'ë' => '&euml;',
-		'Ë' => '&Euml;',
-		'ê' => '&ecirc;',
-		'Ê' => '&Ecirc;',
-		// --------------- //
-		'í' => '&iacute;',
-		'Í' => '&Iacute;',
-		'ì' => '&igrave;',
-		'Ì' => '&Igrave;',
-		'ï' => '&iuml;',
-		'Ï' => '&Iuml;',
-		'î' => '&icirc;',
-		'Î' => '&Icirc;',
-		// --------------- //
-		'ó' => '&oacute;',
-		'Ó' => '&Oacute;',
-		'ò' => '&ograve;',
-		'Ò' => '&Ograve;',
-		'ö' => '&ouml;',
-		'Ö' => '&Ouml;',
-		'ô' => '&ocirc;',
-		'Ô' => '&Ocirc;',
-		// --------------- //
-		'ú' => '&uacute;',
-		'Ú' => '&Uacute;',
-		'ù' => '&ugrave;',
-		'Ù' => '&Ugrave;',
-		'ü' => '&uuml;',
-		'Ü' => '&Uuml;',
-		'û' => '&ucirc;',
-		'Û' => '&Ucirc;',
-		// --------------- //
-		'ñ' => '&ntilde;'
-	);
-
-	public static $meses = array(
-		'1' => 'Enero',
-		'2' => 'Febrero',
-		'3' => 'Marzo',
-		'4' => 'Abril',
-		'5' => 'Mayo',
-		'6' => 'Junio',
-		'7' => 'Julio',
-		'8' => 'Agosto',
-		'9' => 'Septiembre',
-		'10' => 'Octubre',
-		'11' => 'Noviembre',
-		'12' => 'Diciembre'
-	);
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
 
     private static $charset = array(
         'á' => '&aacute;',
@@ -193,44 +124,6 @@ class Util
         '9' => 'Vendedor(a)'
     );
 
-    // Genera carnet de estudiante
-    public static function card_generate($carnet, $input) {
-        if (is_null($carnet))
-            $carnet = date('Y') . '-' . ucfirst($input['apellido1'][0]) . ucfirst($input['apellido2'][0]) . '001';
-        else {
-            if ($carnet[9] < 9)
-                $carnet[9] = 1 + (int) $carnet[9];
-            elseif ($carnet[8] < 9) {
-                $carnet[8] = 1 + (int) $carnet[8];
-                $carnet[9] = 0;
-            } elseif ($carnet[7] < 9) {
-                $carnet[7] = 1 + (int) $carnet[7];
-                $carnet[8] = 0;
-                $carnet[9] = 0;
-            }
-        }
-        return $carnet;
-    }
-
-    // Genera identificador de familia
-    public static function family_identifier($identificador, $input) {
-        if (is_null($identificador))
-            $identificador = date('Y') . '-F' . ucfirst($input['apellido1'][0]) . ucfirst($input['apellido2'][0]) . '0' . '0' . '1';
-        else {
-            if ($identificador[10] < 9)
-                $identificador[10] = 1 + (int) $identificador[10];
-            elseif ($identificador[9] < 9) {
-                $identificador[9] = 1 + (int) $identificador[9];
-                $identificador[10] = 0;
-            } elseif ($identificador[8] < 9) {
-                $identificador[8] = 1 + (int) $identificador[8];
-                $identificador[9] = 0;
-                $identificador[10] = 0;
-            }
-        }
-        return $identificador;
-    }
-
     // Genera contaseña
     public static function passwd_generate($clave) {
         if (is_null($clave))
@@ -240,7 +133,6 @@ class Util
         return $clave;
     }
 
-<<<<<<< HEAD
     public static function RandomString($length, $uc, $n, $sc) {
         $source = "";
         if ($uc == 1)
@@ -265,7 +157,7 @@ class Util
     public static function time_generate($dia, $mes, $anyo) {
         return time($anyo . '/' . ($mes < 9 ? '0' . $mes : $mes) . '/' . ($dia < 9 ? '0' . $dia : $dia));
     }
-=======
+
     public static $perfiles = array(
         '2' => 'Director',
         '3' => 'Secretaria',
@@ -321,25 +213,12 @@ class Util
 		}
 		return $identificador;
 	}
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
-
-    // Cambia las vocales con acento y las ñ's por caracteres ascii
-    public static function ascii_transponse($cadena) {
-        if (!is_null($cadena)) {
-            foreach (self::$charset as $indice => $valor) {
-                $cadena = str_replace($indice, $valor, trim($cadena));
-            }
-            return $cadena;
-        } else
-            return $cadena;
-    }
 
     // Arreglo a String
     public static function strtoarr($str) {
         return explode(",", $str);
     }
 
-<<<<<<< HEAD
     public static function arrtostr($arreglo) {
         if (!is_null($arreglo)) {
             $cadena = '';
@@ -352,7 +231,7 @@ class Util
         } else
             return $arreglo;
     }
-=======
+
 	// Cambia las vocales con acento y las ñ's por caracteres ascii
 	public static function ascii_transponse( $cadena )
 	{
@@ -367,7 +246,6 @@ class Util
 		else
 			return $cadena;
 	}
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
 
     // Regrasa todos lo contenidos de objeto json binario
     public static function all() {
@@ -380,7 +258,6 @@ class Util
         return json_decode($datos);
     }
 
-<<<<<<< HEAD
     // Encuentra una cadena de texto en un fiechero
     public static function find($cadena) {
         $archivo = fopen('/var/www/html/sidma/public/estudiante/adds.json', 'r');
@@ -438,71 +315,6 @@ class Util
         fclose($archivo);
         return 1;
     }
-=======
-	// Regrasa todos lo contenidos de objeto json binario
-	public static function all()
-	{
-		$archivo = fopen('/var/www/html/sidma/public/estudiante/adds.json', 'r');
-		$datos = '';
-		while(!feof($archivo))
-		{
-			$datos = $datos.fgets($archivo);
-		}
-		fclose($archivo);
-		return json_decode($datos);
-	}
-
-	// Encuentra una cadena de texto en un fiechero
-	public static function find($cadena)
-	{
-		$archivo = fopen('/var/www/html/sidma/public/estudiante/adds.json', 'r');
-		$datos = '';
-		while(!feof($archivo))
-		{
-			$datos = $datos.fgets($archivo);
-		}
-		fclose($archivo);
-		$objeto = json_decode($datos);
-		foreach ($objeto as $indice => $contenido)
-		{
-			if($indice==$cadena)
-			{
-				return $contenido;
-				break;
-			}
-		}
-	}
-
-	// Guarda en una cadena de texto en un fichero
-	public static function save($indice, $contenido)
-	{
-		$archivo = fopen('/var/www/html/sidma/public/estudiante/adds.json', 'r');
-		$datos = array();
-		$i = 0;
-		while(!feof($archivo))
-		{
-			$datos[$i] = fgets($archivo);
-			$i++;
-		}
-		fclose($archivo);
-
-		for ($i=0; $i < count($datos); $i++) {
-			$cadena = trim($datos[$i]);
-			if(count($datos)>=3)
-			{
-				if($i>0 AND $i<(count($datos)-1))
-					if (strpos($cadena, ',')===false) $coma = $cadena.',';
-					else $coma = $cadena;
-				else
-					$coma = $cadena;
-				$datos[$i] = $coma;
-			}
-			else
-				$datos[$i] = $cadena;
-		}
-		$datos[count($datos)-1] = '"'.$indice.'":"'.$contenido.'"';
-		$datos[count($datos)] = '}';
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
 
     // Verifica si la variable esta vacia
     public static function fill($cadena) {
@@ -512,7 +324,6 @@ class Util
             return $cadena;
     }
 
-<<<<<<< HEAD
     public static function FormatDate($date) {
         $date = explode(' ', $date);
         $hms = '';
@@ -527,8 +338,6 @@ class Util
         }
     }
 
-   
-
     public static function FormatDateMysql($date) {
         $dat = explode('/', trim($date));
         $date_day = $dat[0];
@@ -536,15 +345,5 @@ class Util
         $date_year = $dat[2];
         return $date_year . "-" . $date_month . "-" . $date_day;
     }
-=======
-	// Verifica si la variable esta vacia
-	public static function fill($cadena)
-	{
-		if (empty($cadena) OR is_null($cadena) OR !isset($cadena))
-			return NULL;
-		else
-			return $cadena;
-	}
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
 
 }

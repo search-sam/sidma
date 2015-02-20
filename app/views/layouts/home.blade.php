@@ -32,8 +32,7 @@
 
     <body>
 
-<<<<<<< HEAD
-        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">            
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -47,11 +46,9 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         {{-- if ((Session::get('usuario.cod_profile') == 1) or (Session::get('usuario.cod_profile') == 2)) --}}
-                         <li><a href="{{action('AdmonacademicaController@inicio')}}"><span class="glyphicon glyphicon-cog"></span> Admón. Académica</a></li>
+                        <li><a href="{{action('AdmonacademicaController@inicio')}}"><span class="glyphicon glyphicon-cog"></span> Admón. Académica</a></li>
                         <li><a href="{{action('MatriculaController@inicio')}}">Matricula</a></li>
-                           <li><a href="{{action('DocenteController@inicio')}}">Docente</a></li>
                         <li><a href="{{action('EstudianteController@inicio')}}"><span class="glyphicon glyphicon-education"></span>Estudiante</a></li>
-                      
                         <li><a href="{{action('FamiliaController@inicio')}}">Familia</a></li>
                         <li><a href="{{action('EmpleadoController@inicio')}}"><span class="glyphicon glyphicon-user"></span> Empleado</a></li>
                         {{-- @endif --}}
@@ -60,33 +57,6 @@
                 </div>
             </div>
         </div>
-=======
-	    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	      	<div class="container-fluid">
-	        	<div class="navbar-header">
-	          		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	            		<span class="sr-only">Toggle navigation</span>
-	            		<span class="icon-bar"></span>
-	            		<span class="icon-bar"></span>
-	            		<span class="icon-bar"></span>
-	          		</button>
-	          		<a class="navbar-brand" href="{{action('HomeController@inicio')}}"><img src="{{URL::to('/')}}/img/logo.svg"></a>
-	        	</div>
-	        	<div class="navbar-collapse collapse">
-		          	<ul class="nav navbar-nav navbar-right">
-		          		{{-- if ((Session::get('usuario.cod_profile') == 1) or (Session::get('usuario.cod_profile') == 2)) --}}
-		          		<li><a href="{{action('MatriculaController@inicio')}}">Matricula</a></li>
-		            	<li><a href="{{action('EstudianteController@inicio')}}">Estudiante</a></li>
-                        <li><a href="{{action('AdmonacademicaController@inicio')}}">Acad&eacute;mico</a></li>
-		            	<li><a href="{{action('FamiliaController@inicio')}}">Familia</a></li>
-                        <li><a href="{{action('UsuarioController@inicio')}}">Usuario</a></li>
-		            	{{-- @endif --}}
-		            	<li><a href="{{action('LoginController@salir')}}">Salir</a></li>
-		          	</ul>
-	        	</div>
-	      	</div>
-	    </div>
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
 
         <div class="container-fluid">
             <div class="row">

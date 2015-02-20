@@ -2,7 +2,6 @@
 
 class LoginController extends BaseController {
 
-<<<<<<< HEAD
     public function login() {
         return View::make('login.login');
     }
@@ -17,7 +16,7 @@ class LoginController extends BaseController {
             //Verificamos su perfil de usuario
             switch ($usuario->cod_profile) {
 
-                case 1://admin                 
+                case 1://admin
                     Auth::login($usuario);
                     return Redirect::action('HomeController@inicio');
 
@@ -38,7 +37,7 @@ class LoginController extends BaseController {
                 case 6://docente
                     return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-exclamation-sign"></i> <strong>Denegado</strong>, acceso solo a estudiantes y admins');
                     break;
-                case 7://estudiante                  
+                case 7://estudiante
                     if ($usuario[0]->estudiante->student_state == 1) {
                         foreach ($usuario[0] as $key => $value) {
                             Session::put('usuario.' . $key, $value);
@@ -61,46 +60,5 @@ class LoginController extends BaseController {
         Auth::logout();
         return Redirect::action('LoginController@login');
     }
-=======
-	public function login()
-	{
-		return View::make('login.login');
-	}
-
-	public function acceso()
-	{
-		$input   = Input::all();
-
-		$usuario = Usuario::where('user', '=', $input['usuario'])->where('password', '=', $input['contra'])->get();
-        if (!empty($usuario))
-        {
-
-        	if ($usuario[0]->estudiante->student_state == 1)
-        	{
-	        	foreach ($usuario[0] as $key => $value)
-	        	{
-	        		Session::put('usuario.'.$key, $value);
-	        	}
-        		return Redirect::action('HomeController@inicio');
-        	}
-        	else
-        		return Redirect::action('LoginController@login');
-        }
-        else
-        {
-            return Redirect::action('LoginController@login');
-        }
-	}
-
-	public function salir()
-	{
-		Auth::logout();
-		if (Auth::check()) {
-    		return Redirect::action('HomeController@inicio');
-		} else {
-			return Redirect::action('LoginController@login');
-		}
-	}
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
 
 }

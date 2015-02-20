@@ -2,7 +2,7 @@
 
 class Grupo extends Eloquent {
 
-    protected $table = 'Grupo';
+    protected $table = 'grupo';
     protected $primaryKey = 'cod_grupo';
     public $timestamps = false;
 
@@ -21,9 +21,9 @@ class Grupo extends Eloquent {
     public function yeargroup() {
         return $this->hasMany('Yeargroup', 'cod_grupo');
     }
-    
-   
-    
+
+
+
     public function years(){
         return $this->belongsToMany('Year','year_grupo','cod_grupo','cod_school_year');
     }

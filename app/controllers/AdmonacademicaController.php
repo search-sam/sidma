@@ -10,11 +10,11 @@ class AdmonAcademicaController extends BaseController {
         $turnos = Turno::all();
 
         return View::make('admonacademica.admonacademica')
-                        ->with('years', $years)
-                        ->with('classrooms', $classrooms)
-                        ->with('niveles', $niveles)
-                        ->with('materias', $materias)
-                        ->with('turnos', $turnos);
+            ->with('years', $years)
+            ->with('classrooms', $classrooms)
+            ->with('niveles', $niveles)
+            ->with('materias', $materias)
+            ->with('turnos', $turnos);
     }
 
     public function periodos() {
