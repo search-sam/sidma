@@ -5,7 +5,7 @@ class CargoController extends BaseController {
     public function inicio() {
         $cargos = Cargo::all();
         return View::make('cargo.cargo')
-                        ->with('cargos', $cargos);
+            ->with('cargos', $cargos);
     }
 
     public function editar() {
@@ -35,7 +35,11 @@ class CargoController extends BaseController {
         $cargo->save();
 
 
+<<<<<<< HEAD
         return Redirect::action('EmpleadoController@inicio', array('#employments'))->with('message_employment', $msg);
+=======
+        return Redirect::action('EmpleadoController@inicio');
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
     }
 
 }

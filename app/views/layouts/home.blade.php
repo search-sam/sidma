@@ -32,7 +32,11 @@
 
     <body>
 
+<<<<<<< HEAD
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">            
+=======
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -46,6 +50,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         {{-- if ((Session::get('usuario.cod_profile') == 1) or (Session::get('usuario.cod_profile') == 2)) --}}
+<<<<<<< HEAD
                         <li><a href="{{action('AdmonacademicaController@inicio')}}"><span class="glyphicon glyphicon-cog"></span> Académica</a></li>
                         <li><a href="{{action('AdministrativaController@inicio')}}"><span class="glyphicon glyphicon-cog"></span> Aministrativa</a></li>
                         <li><a href="{{action('MatriculaController@inicio')}}"><i class="glyphicon glyphicon-file"></i> Matricula</a></li>
@@ -54,6 +59,13 @@
 
                         <li><a href="{{action('FamiliaController@inicio')}}"><i class="glyphicon glyphicon-tree-deciduous"></i> Familia</a></li>
                         <li><a href="{{action('EmpleadoController@inicio')}}"><i class="glyphicon glyphicon-folder-open"></i> Empleado</a></li>
+=======
+                        <li><a href="{{action('AdmonacademicaController@inicio')}}"><span class="glyphicon glyphicon-cog"></span> Admón. Académica</a></li>
+                        <li><a href="{{action('MatriculaController@inicio')}}">Matricula</a></li>
+                        <li><a href="{{action('EstudianteController@inicio')}}"><span class="glyphicon glyphicon-education"></span>Estudiante</a></li>
+                        <li><a href="{{action('FamiliaController@inicio')}}">Familia</a></li>
+                        <li><a href="{{action('EmpleadoController@inicio')}}"><span class="glyphicon glyphicon-user"></span> Empleado</a></li>
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
                         {{-- @endif --}}
                         <li class="dropdown">
                             <a  style="padding-bottom: 7px;padding-top: 7px;margin-top: 7px;margin-right: 7px;" class="btn btn-sm navbar-inverse dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
@@ -92,7 +104,10 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 
         <div class="container-fluid">
             <div class="row">

@@ -24,8 +24,15 @@ class Grupo extends Eloquent {
         return $this->hasMany('Yeargroup', 'cod_grupo');
     }
 
+<<<<<<< HEAD
     public function years() {
         return $this->belongsToMany('Year', 'year_grupo', 'cod_grupo', 'cod_school_year');
+=======
+
+
+    public function years(){
+        return $this->belongsToMany('Year','year_grupo','cod_grupo','cod_school_year');
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
     }
 
     public function nivel() {

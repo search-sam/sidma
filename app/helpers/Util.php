@@ -162,6 +162,7 @@ class Util {
         return $clave;
     }
 
+<<<<<<< HEAD
     public static function levelname($level_name) {
         $string = '';
         if ($level_name == 'PK-1')
@@ -177,6 +178,8 @@ class Util {
         return $string;
     }
 
+=======
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
     public static function RandomString($length, $uc, $n, $sc) {
         $source = "";
         if ($uc == 1)
@@ -236,6 +239,7 @@ class Util {
         return $carnet;
     }
 
+<<<<<<< HEAD
     public static function right($string, $sufix) {
         $lenght = strlen($string); //10
         $start_lenght = $lenght - $sufix;
@@ -266,6 +270,31 @@ class Util {
         $identificador = util::left($identificador, 3) . $prefix . $numbers;
         return $identificador;
     }
+=======
+	// Genera identificador de familia
+	public static function family_identifier( $identificador, $input )
+	{
+		if (is_null($identificador))
+			$identificador = date('Y').'-F'.ucfirst($input['apellido1'][0]).ucfirst($input['apellido2'][0]).'0'.'0'.'1';
+		else
+		{
+			if ($identificador[10] < 9)
+				$identificador[10] = 1 + (int) $identificador[10];
+			elseif ($identificador[9] < 9)
+			{
+				$identificador[9] = 1 + (int) $identificador[9];
+				$identificador[10] = 0;
+			}
+			elseif ($identificador[8] < 9)
+			{
+				$identificador[8] = 1 + (int) $identificador[8];
+				$identificador[9] = 0;
+				$identificador[10] = 0;
+			}
+		}
+		return $identificador;
+	}
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 
     // Arreglo a String
     public static function strtoarr($str) {
@@ -285,6 +314,7 @@ class Util {
             return $arreglo;
     }
 
+<<<<<<< HEAD
     // Cambia las vocales con acento y las ñ's por caracteres ascii
     public static function ascii_transponse($cadena) {
         if (!is_null($cadena)) {
@@ -295,6 +325,22 @@ class Util {
         } else
             return $cadena;
     }
+=======
+	// Cambia las vocales con acento y las ñ's por caracteres ascii
+	public static function ascii_transponse( $cadena )
+	{
+		if (!is_null($cadena))
+		{
+			foreach (self::$charset as $indice => $valor)
+			{
+				$cadena = str_replace($indice, $valor, trim($cadena));
+			}
+			return $cadena;
+		}
+		else
+			return $cadena;
+	}
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 
     // Regrasa todos lo contenidos de objeto json binario
     public static function all() {
@@ -367,6 +413,17 @@ class Util {
         $datos[count($datos)] = '}';
     }
 
+<<<<<<< HEAD
+=======
+    // Verifica si la variable esta vacia
+    public static function fill($cadena) {
+        if (empty($cadena) OR is_null($cadena) OR ! isset($cadena))
+            return NULL;
+        else
+            return $cadena;
+    }
+
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
     public static function FormatDate($date) {
         $date = explode(' ', $date);
         $hms = '';
@@ -388,6 +445,7 @@ class Util {
         $date_year = $dat[2];
         return $date_year . "-" . $date_month . "-" . $date_day;
     }
+<<<<<<< HEAD
 
     // Verifica si la variable esta vacia
     public static function fill($cadena) {
@@ -396,5 +454,7 @@ class Util {
         else
             return $cadena;
     }
+=======
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 
 }

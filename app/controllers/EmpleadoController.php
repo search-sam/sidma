@@ -11,8 +11,8 @@ class EmpleadoController extends BaseController {
         $cargos = Cargo::all();
         $empleados = Empleado::all();
         return View::make('empleado.empleado')
-                        ->with('empleados', $empleados)
-                        ->with('cargos', $cargos);
+            ->with('empleados', $empleados)
+            ->with('cargos', $cargos);
     }
 
     public function editar() {
@@ -31,7 +31,7 @@ class EmpleadoController extends BaseController {
     public function NewOrEdit() {
         $input = Input::all();
         $isNew = 1;
-         $cod_profile = 6; 
+         $cod_profile = 6;
         if (isset($input['cod_employee'])) {
             $empleado = Empleado::find($input['cod_employee']);
             $isNew = 0;
@@ -45,12 +45,12 @@ class EmpleadoController extends BaseController {
             foreach ($cargos as $cod_cargo => $cargo) {
                 $cargosarray[$cargo->cod_employment] = $cargo->employment_name;
             }
-           //perfil del docente; es el perfil del empleado más común a insertar     
+           //perfil del docente; es el perfil del empleado más común a insertar
             if (preg_match('/coordin/i', $cargosarray[$input['cargo']])) {
                 $cod_profile = 4; //perfil del coordinador
             }
             if (preg_match('/secret/i', $cargosarray[$input['cargo']])) {
-                $cod_profile = 3; //perfil del secreatri@ acádemico   
+                $cod_profile = 3; //perfil del secreatri@ acádemico
             }
             if (preg_match('/director/i', $cargosarray[$input['cargo']])) {
                 $cod_profile = 2; //perfil del director

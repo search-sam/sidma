@@ -8,6 +8,7 @@
 @stop
 
 @section('content')
+<<<<<<< HEAD
 <div id="students" class="col-sm-offset-2 col-sm-8 col-md-offset-1 col-md-10 main">
     <h1 class="page-header mypageheader">Estudiante <a data-toggle="tooltip" data-placement="right" title='Se registrará un nuevo estudiante al sistema' href="{{action('EstudianteController@nuevo')}}" class="btn btn-success"><i class="glyphicon glyphicon-plus-sign"></i> Nuevo Estudiante</a> </h1>
     <div class="alert alert-success" <?= Session::has('message_student') ? '' : 'style="display:none"' ?> >
@@ -15,6 +16,11 @@
         <i class="glyphicon glyphicon-info-sign"></i> {{Session::get('message_student')}}
     </div>
     <div class="table-responive">
+=======
+<div id="inicio" class="col-sm-offset-2 col-sm-8 col-md-offset-1 col-md-10 main">
+    <h1 class="page-header">Estudiante <a href="{{action('EstudianteController@nuevo')}}" class="btn btn-success">Nuevo Estudiante</a> </h1>
+    <div class="table-responsive">
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
         <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="example">
             <thead>
                 <tr>
@@ -92,11 +98,15 @@
             </tbody>
         </table>
     </div>
+<<<<<<< HEAD
     <div class="modal fade" id='enrollment' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 
     </div>
 </div>
 
+=======
+</div>
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 @stop
 
 @section('js')
@@ -122,10 +132,13 @@ $(document).ready(function() {
     $(document).on('click', '.edit', function() {
         $(location).attr('href', $(this).attr('ref'));
     });
+<<<<<<< HEAD
 
 
     $('#example').dataTable();
 
+=======
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 });
 </script>
 @stop

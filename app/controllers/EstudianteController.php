@@ -3,12 +3,17 @@
 class EstudianteController extends BaseController {
 
     public function inicio() {
+<<<<<<< HEAD
         if (Auth::check()) {
             
         } else {
             return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-info-sign"></i> <strong>Denegado</strong>, debe ser usuario');
         }
         $estudiantes = Estudiante::all();
+=======
+        $estudiantes = Estudiante::join('user', 'user.cod_user', '=', 'student.cod_user')
+            ->where('cod_profile', '!=', 1)->get();
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 
         return View::make('estudiante.estudiante')->with('estudiantes', $estudiantes);
     }
@@ -119,8 +124,8 @@ class EstudianteController extends BaseController {
         $familias = Familia::all();
 
         return View::make('estudiante.nuevo')
-                        ->with('grados', $grados)
-                        ->with('familias', $familias);
+            ->with('grados', $grados)
+            ->with('familias', $familias);
     }
 
     public function generateenrollment() {
@@ -166,8 +171,18 @@ class EstudianteController extends BaseController {
         //hasta este momento no se debe generar un usuario al estudiante ps no esta matriculado aun
         //el query de $carnet solo manda el primer registro de la tabla estudiante siempre va a ser el mismo
         //$carnet = DB::table('student')->select('student_card')->orderBy('cod_student', 'desc')->first();
+<<<<<<< HEAD
         //$last_student_card = Estudiante::all()->last()->student_card;
         //$card = Util::card_generate($last_student_card, $input);
+=======
+        $card = Util::card_generate(null, $input);
+        $usuario = new Usuario;
+        $usuario->user = $card;
+        $usuario->password = Util::RandomString(7, 1, 1, 0);
+        $usuario->cod_profile = 7;
+        $usuario->save();
+
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
         $cod_family = $input['cod_family'];
         $newfamily = 0;
         if ($cod_family == 0) {//si es una nueva familia se crea un usuario de familia
@@ -192,7 +207,23 @@ class EstudianteController extends BaseController {
             $newfamily = 1;
         }
 
+<<<<<<< HEAD
 
+=======
+        //el $input familia siempre estaba vacio...
+        /*if (!empty($input['familia']))
+        $identity = $input['familia'];
+        else {
+            echo 'no hay input familia';
+            //$identificador 	= DB::table('family')->select('family_identity')->orderBy('cod_family', 'desc')->first();
+            $identificador = DB::select('SELECT `family_identity` FROM `family` ORDER BY `cod_family` DESC LIMIT 1');
+            $identity = Util::family_identifier($identificador[0]->family_identity, $input);
+        }
+        $familia = new Familia;
+        $familia->family_identity = $identity;
+        $familia->cod_user = $usuario->cod_user;
+        $familia->save();*/
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 
         $estudiante = new Estudiante;
         // $estudiante->student_card = $card;
@@ -227,8 +258,12 @@ class EstudianteController extends BaseController {
         $medica->cod_student = $estudiante->cod_student;
         $medica->save();
 
+<<<<<<< HEAD
         $msg = '<b>Paso 1</b>: Se ha registrado correctamente un nuevo estudiante al sistema :: <b>' . $estudiante->first_name . ' ' . $estudiante->first_last_name . '</b>. Complete la siguiente información.';
         return Redirect::action('EstudianteController@datosmatricula', array('id' => $estudiante->cod_student, 'cod_family' => $cod_family, 'newfamily' => $newfamily))->with('message_student', $msg);
+=======
+       return Redirect::action('EstudianteController@datosmatricula', array('id' => $estudiante->cod_student,'cod_family'=>$cod_family,'newfamily'=>$newfamily));
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
     }
 
     public function datosmatricula() {
@@ -241,6 +276,7 @@ class EstudianteController extends BaseController {
         $year_payment_plans = YearPlandepago::where('cod_school_year', $year->vigente()->cod_school_year)->get();
         $year_discounts = YearDescuento::where('cod_school_year', $year->vigente()->cod_school_year)->get();
         return View::make('estudiante.datos')
+<<<<<<< HEAD
                         ->with('grados', $grados)
                         ->with('id', $input['id'])
                         ->with('cod_family', $cod_family)
@@ -248,6 +284,12 @@ class EstudianteController extends BaseController {
                         ->with('year_payment_plans', $year_payment_plans)
                         ->with('year_discounts', $year_discounts)
                         ->with('estudiante', $estudiante);
+=======
+            ->with('grados', $grados)
+            ->with('id', $input['id'])
+            ->with('cod_family',$cod_family)
+            ->with('newfamily',$newfamily);
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
     }
 
     public function editar() {
@@ -514,6 +556,7 @@ class EstudianteController extends BaseController {
         $msg = 'Se ha registrado correctamente un nuevo estudiante al sistema :: <b>' . $estudiante->first_name . ' ' . $estudiante->first_last_name . '</b>';
         $msg2 = '<b>Paso 2</b>: Se ha registrado correctamente la información académica, administrativa y médica de <b>' . $estudiante->first_name . ' ' . $estudiante->first_last_name . '</b> :: Complete la siguiente información (Familia).';
 
+<<<<<<< HEAD
         if ($newfamily == 1) {//Si el estudiante nos da una nueva familia
             return Redirect::action('FamiliaController@padrenuevo', array('familia_id' => $cod_family, 'cod_student' => $estudiante->cod_student))->with('message_student', $msg2);
         } else {
@@ -521,4 +564,14 @@ class EstudianteController extends BaseController {
         }
     }
 
+=======
+       $cod_family = $input['cod_family'];
+       $newfamily = $input['newfamily'];
+       if($newfamily==1){//Si el estudiante nos da una nueva familia
+           return Redirect::action('FamiliaController@padrenuevo', array('familia_id' => $cod_family));
+       }else{
+           return Redirect::action('EstudianteController@inicio');
+       }
+    }
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 }

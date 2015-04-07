@@ -2,7 +2,10 @@
 
 class LoginController extends BaseController {
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
     public function login() {
         return View::make('login.login');
     }
@@ -17,7 +20,7 @@ class LoginController extends BaseController {
             //Verificamos su perfil de usuario
             switch ($usuario->cod_profile) {
 
-                case 1://admin                 
+                case 1://admin
                     Auth::login($usuario);
                     return Redirect::action('HomeController@inicio');
 
@@ -38,7 +41,7 @@ class LoginController extends BaseController {
                 case 6://docente
                     return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-alert"></i> <strong>Denegado</strong> :: solo estudiantes y admins.');
                     break;
-                case 7://estudiante                  
+                case 7://estudiante
                     if ($usuario[0]->estudiante->student_state == 1) {
                         foreach ($usuario[0] as $key => $value) {
                             Session::put('usuario.' . $key, $value);
@@ -61,9 +64,12 @@ class LoginController extends BaseController {
         Auth::logout();
         return Redirect::action('LoginController@login');
     }
+<<<<<<< HEAD
 
 	
 
 
+=======
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 
 }

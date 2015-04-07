@@ -8,17 +8,27 @@
 
 @section('side')
 <div class="col-sm-3 col-md-2 sidebar" role="complementary">
+<<<<<<< HEAD
     <ul class="nav nav-pills">
         <li><a href="#lectiveyear"><b>Año lectivo</b> <span class="badge"></span></a></li>
         <li><a href="#shifts"><b>Turnos</b> <span class="badge">{{$turnos->count()}}</span></a></li>
         <li><a href="#classrooms"><i class="glyphicon glyphicon-"></i><b>Aula de clases</b> <span class="badge">{{$classrooms->count()}}</span></a></li>
         <li><a href="#levels"><b>Niveles</b> <span class="badge">{{$niveles->count()}}</span></a></li>	
         <li><a href="#subjects"><i class="glyphicon glyphicon-"></i><b>Materias</b> <span class="badge">{{$materias->count()}}</span></a></li>
+=======
+    <ul class="nav bs-docs-sidenav">
+        <li><a href="#lectiveyear"><b>Año lectivo</b></a></li>
+        <li><a href="#shifts"><b>Turnos</b></a></li>
+        <li><a href="#classrooms"><b>Aula de clases</b></a></li>
+        <li><a href="#levels"><b>Niveles</b></a></li>
+        <li><a href="#subjects"><b>Materias </b></a></li>
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
     </ul>
 </div>
 @stop
 
 @section('content')
+<<<<<<< HEAD
 
 <div id="lectiveyear" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
     <h1 class="page-header mypageheader" id="hschool_year">Año lectivo 
@@ -29,6 +39,13 @@
     </div>
     <div class="table-responsivde">
         <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="lectiveyears">
+=======
+<div id="lectiveyear" class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+    <h1 class="page-header" id="hschool_year">Año lectivo
+        <button data-toggle="modal" data-target="#NewOrEditModal" id="NewYear"  class="btn btn-success">Nuevo año lectivo</button></h1>
+    <div class="table-responsive">
+        <table cellpadding="0" cellspacing="0" border="0" class="table table-striped table-bordered table-hover" id="example">
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
             <thead>
                 <tr> 
                     <th>Estado</th>
@@ -218,13 +235,23 @@
         </table>
     </div>
 </div>
+<<<<<<< HEAD
 <div class="modal" id="DelClassroomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
+=======
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 
+<div class="modal fade" id="DelClassroomModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 </div>
+<<<<<<< HEAD
 <div class="modal" id="NewOrEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+=======
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
 
+<div class="modal fade" id="NewOrEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 </div>
+@stop
+
 
 @section('js')
 <script type="text/javascript" language="javascript" src="{{URL::to('/')}}/js/bootstrap-datepicker.min.js"></script>
@@ -326,8 +353,8 @@ $(document).ready(function() {
     });
     $(document).on("click",".trselect", function() {
         var cod_school_year = $(this).parent().attr("id");
-
     });
+<<<<<<< HEAD
    
 
 });
@@ -336,3 +363,8 @@ $(document).ready(function() {
 @stop
 
 
+=======
+});
+</script>
+@stop
+>>>>>>> b248824688b330e9e66101235b80bafb5ae5f18a
