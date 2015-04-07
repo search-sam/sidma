@@ -16,15 +16,15 @@ class FamiliaController extends BaseController {
 
     public function padrenuevo() {
         $cod = Input::all();
-   
-        return View::make('familia.padrenuevo')->with('familia_id', $cod['familia_id']);
-    }
+        $estudiante = Estudiante::find($cod['cod_student']);
 
+        return View::make('familia.padrenuevo')->with('familia_id', $cod['familia_id'])->with('estudiante', $estudiante);
+    }
 
     public function tutoragregar() {
         $input = Input::all();
-       
-        $tutor = new DetalleFamilia;//los datos del tutor son los de family_detail
+
+        $tutor = new DetalleFamilia; //los datos del tutor son los de family_detail
         $return = $input['return'];
         $tutor->cod_family = empty($input['familia_id']) ? NULL : $input['familia_id'];
         $tutor->relationship = empty($input['relacion']) ? NULL : $input['relacion'];
@@ -53,15 +53,15 @@ class FamiliaController extends BaseController {
         $trabajo->company_mobile = empty($input['empresa-celular']) ? NULL : $input['empresa-celular'];
         $trabajo->company_email = empty($input['tutor-correo']) ? NULL : $input['tutor-correo'];
         $trabajo->save();
+        $estudiante = Estudiante::find($input['cod_student']);
+        $msg = 'Se ha registrado correctamente un nuevo estudiante al sistema :: <b>' . $estudiante->first_name . ' ' . $estudiante->first_last_name . '</b> :: Se ha creado una nueva Familia.';
+         $msg1 = 'Se ha registrado correctamente un nuevo tutor al sistema :: <b>' . $tutor->first_name . ' ' . $tutor->first_last_name . '</b>';
 
-        if($return=='true'){
-            return Redirect::action('FamiliaController@padrenuevo', array('familia_id' => $input['familia_id']));
-        }else{
-            return Redirect::action('EstudianteController@inicio');
+        if ($return == 1) {
+            return Redirect::action('FamiliaController@padrenuevo', array('familia_id' => $input['familia_id']))->with('message_tutor',$msg1);
+        } else {
+            return Redirect::action('EstudianteController@inicio')->with('message_student', $msg);
         }
-        
-        
-        
     }
 
 }

@@ -2,7 +2,7 @@
 
 class Cargo extends Eloquent {
 
-    protected $table = 'Employment';
+    protected $table = 'employment';
     protected $primaryKey = 'cod_employment';
     public $timestamps = false;
 

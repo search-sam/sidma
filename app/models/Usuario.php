@@ -9,9 +9,9 @@ class Usuario extends Eloquent implements UserInterface, RemindableInterface {
     public $timestamps = false;
     protected $hidden = array('password');
 
-    public function familia() {
+    /*public function familia() {
         return $this->has('Familia', 'cod_family');
-    }
+    }*/
 
     public function estudiante() {
         return $this->hasOne('Estudiante', 'cod_user');

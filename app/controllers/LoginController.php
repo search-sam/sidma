@@ -2,7 +2,7 @@
 
 class LoginController extends BaseController {
 
-<<<<<<< HEAD
+
     public function login() {
         return View::make('login.login');
     }
@@ -24,19 +24,19 @@ class LoginController extends BaseController {
 
                     break;
                 case 2://director
-                    return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-exclamation-sign"></i> <strong>Denegado</strong>, acceso solo a estudiantes y admins');
+                    return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-alert"></i> <strong>Denegado</strong> :: solo estudiantes y admins.');
                     break;
                 case 3://secretaria
-                    return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-exclamation-sign"></i> <strong>Denegado</strong>, acceso solo a estudiantes y admins');
+                    return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-alert"></i> <strong>Denegado</strong> :: solo estudiantes y admins.');
                     break;
                 case 4://coordinador
-                    return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-exclamation-sign"></i> <strong>Denegado</strong>, acceso solo a estudiantes y admins');
+                    return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-alert"></i> <strong>Denegado</strong> :: solo estudiantes y admins.');
                     break;
                 case 5://docente guia
-                    return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-exclamation-sign"></i> <strong>Denegado</strong>, acceso solo a estudiantes y admins');
+                    return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-alert"></i> <strong>Denegado</strong> :: solo estudiantes y admins.');
                     break;
                 case 6://docente
-                    return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-exclamation-sign"></i> <strong>Denegado</strong>, acceso solo a estudiantes y admins');
+                    return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-alert"></i> <strong>Denegado</strong> :: solo estudiantes y admins.');
                     break;
                 case 7://estudiante                  
                     if ($usuario[0]->estudiante->student_state == 1) {
@@ -53,7 +53,7 @@ class LoginController extends BaseController {
             }
         } else {
 
-            return Redirect::to('login')->with('message', ' <i class="glyphicon glyphicon-exclamation-sign"></i> <strong>¡Acceso denegado!</strong>');
+            return Redirect::to('login')->with('message', ' <i class="glyphicon glyphicon-alert"></i> <strong>¡Acceso denegado!</strong>');
         }
     }
 
@@ -61,46 +61,9 @@ class LoginController extends BaseController {
         Auth::logout();
         return Redirect::action('LoginController@login');
     }
-=======
-	public function login()
-	{
-		return View::make('login.login');
-	}
 
-	public function acceso()
-	{
-		$input   = Input::all();
+	
 
-		$usuario = Usuario::where('user', '=', $input['usuario'])->where('password', '=', $input['contra'])->get();
-        if (!empty($usuario))
-        {
 
-        	if ($usuario[0]->estudiante->student_state == 1)
-        	{
-	        	foreach ($usuario[0] as $key => $value)
-	        	{
-	        		Session::put('usuario.'.$key, $value);
-	        	}
-        		return Redirect::action('HomeController@inicio');
-        	}
-        	else
-        		return Redirect::action('LoginController@login');
-        }
-        else
-        {
-            return Redirect::action('LoginController@login');
-        }
-	}
-
-	public function salir()
-	{
-		Auth::logout();
-		if (Auth::check()) {
-    		return Redirect::action('HomeController@inicio');
-		} else {
-			return Redirect::action('LoginController@login');
-		}
-	}
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
 
 }

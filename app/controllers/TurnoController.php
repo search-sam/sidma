@@ -19,7 +19,11 @@ $turno = new Turno;
 $turno->shift_name = $input['nombreturno'];
 
 $turno->save();
-return Redirect::action('AdmonacademicaController@inicio');
+$msg = 'Se ha registrado correctamente un nuevo turno al sistema :: <b>' . $turno->shift_name . '</b>';
+        if (isset($input['cod_shift'])) {
+            $msg = 'Turno <b>'.$turno->shift_name.'</b> :: Se han guardado correctamente los cambios realizados.';
+        }
+return Redirect::action('AdmonacademicaController@inicio',array('#shifts'))->with('message_shift',$msg);
 
 }
 

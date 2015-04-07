@@ -3,6 +3,11 @@
 class EmpleadoController extends BaseController {
 
     public function inicio() {
+         if (Auth::check()) {            
+        } else {
+           return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-info-sign"></i> <strong>Denegado</strong>, debe ser usuario');
+                 
+        }
         $cargos = Cargo::all();
         $empleados = Empleado::all();
         return View::make('empleado.empleado')
@@ -81,7 +86,11 @@ class EmpleadoController extends BaseController {
             //falta establecer los campos de edit_note && limit_edit_note
             $docente->save();
         }
-        return Redirect::action('EmpleadoController@inicio');
+         $msg = 'Se ha registrado correctamente un nuevo empleado al sistema :: <b>' . $empleado->EmployeeName . '</b>';
+        if (isset($input['cod_employee'])) {
+            $msg = 'Empleado <b>'.$empleado->EmployeeName.'</b> :: Se han guardado correctamente los cambios realizados.';
+        }
+        return Redirect::action('EmpleadoController@inicio',array('#employees'))->with('message_employee',$msg);
     }
 
 }

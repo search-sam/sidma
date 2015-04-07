@@ -17,10 +17,13 @@ $nivel = new Nivel;
 
 }
 $nivel->level_name = $input['nombrenivel'];
-$nivel->description = $input['descripcion'];
 
 $nivel->save();
-return Redirect::action('AdmonacademicaController@inicio');
+$msg = 'Se ha registrado correctamente un nuevo nivel al sistema :: <b>' . $nivel->level_name . '</b>';
+        if (isset($input['cod_level'])) {
+            $msg = 'Nivel <b>'.$nivel->level_name.'</b> :: Se han guardado correctamente los cambios realizados.';
+        }
+return Redirect::action('AdmonacademicaController@inicio',array('#levels'))->with('message_level',$msg);
 
 }
 

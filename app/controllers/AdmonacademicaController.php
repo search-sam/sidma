@@ -3,6 +3,11 @@
 class AdmonAcademicaController extends BaseController {
 
     public function inicio() {
+         if (Auth::check()) {            
+        } else {
+           return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-info-sign"></i> <strong>Denegado</strong>, debe ser usuario');
+                 
+        }
         $years = Year::all();
         $classrooms = Classroom::all();
         $niveles = Nivel::all();

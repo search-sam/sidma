@@ -10,16 +10,16 @@ class Yeargroup extends Eloquent {
         return $this->belongsToMany('Materia','class','cod_year_grupo','cod_subject');
     }
     public function grupo() {
-        return $this->belongsTo('Grupo','cod_year_grupo','cod_grupo');
+        return $this->belongsTo('Grupo','cod_grupo');
     }
      public function docente() {
-        return $this->belongsTo('Docente','cod_year_grupo','cod_teacher');
+        return $this->belongsTo('Docente','cod_teacher');
     }
      public function turno() {
-        return $this->belongsTo('Turno','cod_year_grupo','cod_shift');
+        return $this->belongsTo('Turno','cod_shift');
     }
      public function year() {
-        return $this->belongsTo('Year','cod_year_grupo','cod_school_year');
+        return $this->belongsTo('Year','cod_school_year');
     }
    
 

@@ -3,8 +3,12 @@
 class PeriodoController extends BaseController {
 
     public function inicio() {
-        $periodos = Periodo::all();
-       
+         if (Auth::check()) {            
+        } else {
+           return Redirect::to('login')->with('message', '<i class="glyphicon glyphicon-info-sign"></i> <strong>Denegado</strong>, debe ser usuario');
+                 
+        }
+        $periodos = Periodo::all();       
         
         return View::make('periodo.periodo')
                 ->with('periodos', $periodos);

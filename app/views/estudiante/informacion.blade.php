@@ -204,7 +204,7 @@ $escucho = array(
   			</div>
   			<div class="panel-body">
   				<div class="form-group">
-		    		<label for="grado" class="col-sm-3 control-label">¿A que grado va el alumno?</label>
+		    		<label for="grado" class="col-sm-3 control-label">¿Último grado que cursó?</label>
 		   			<div class="col-sm-9">
 						<select class="form-control" id="grado" name="grado" >
 						  	@foreach ($grados as $grado)

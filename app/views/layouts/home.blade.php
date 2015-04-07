@@ -1,5 +1,6 @@
-
 <!DOCTYPE html>
+<?php
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -8,7 +9,6 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="shortcut icon" href="{{URL::to('/')}}/img/escudo.png">
-
         <title>SIDMA</title>
 
         <!-- Bootstrap core CSS -->
@@ -32,7 +32,6 @@
 
     <body>
 
-<<<<<<< HEAD
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">            
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -47,46 +46,53 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-right">
                         {{-- if ((Session::get('usuario.cod_profile') == 1) or (Session::get('usuario.cod_profile') == 2)) --}}
-                         <li><a href="{{action('AdmonacademicaController@inicio')}}"><span class="glyphicon glyphicon-cog"></span> Admón. Académica</a></li>
-                        <li><a href="{{action('MatriculaController@inicio')}}">Matricula</a></li>
-                           <li><a href="{{action('DocenteController@inicio')}}">Docente</a></li>
-                        <li><a href="{{action('EstudianteController@inicio')}}"><span class="glyphicon glyphicon-education"></span>Estudiante</a></li>
-                      
-                        <li><a href="{{action('FamiliaController@inicio')}}">Familia</a></li>
-                        <li><a href="{{action('EmpleadoController@inicio')}}"><span class="glyphicon glyphicon-user"></span> Empleado</a></li>
+                        <li><a href="{{action('AdmonacademicaController@inicio')}}"><span class="glyphicon glyphicon-cog"></span> Académica</a></li>
+                        <li><a href="{{action('AdministrativaController@inicio')}}"><span class="glyphicon glyphicon-cog"></span> Aministrativa</a></li>
+                        <li><a href="{{action('MatriculaController@inicio')}}"><i class="glyphicon glyphicon-file"></i> Matricula</a></li>
+                        <li><a href="{{action('DocenteController@inicio')}}">Docente</a></li>
+                        <li><a href="{{action('EstudianteController@inicio')}}"><span class="glyphicon glyphicon-education"></span> Estudiante</a></li>
+
+                        <li><a href="{{action('FamiliaController@inicio')}}"><i class="glyphicon glyphicon-tree-deciduous"></i> Familia</a></li>
+                        <li><a href="{{action('EmpleadoController@inicio')}}"><i class="glyphicon glyphicon-folder-open"></i> Empleado</a></li>
                         {{-- @endif --}}
-                        <li><a href="{{action('LoginController@salir')}}"><span class="glyphicon glyphicon-off"></span> Salir</a></li>
+                        <li class="dropdown">
+                            <a  style="padding-bottom: 7px;padding-top: 7px;margin-top: 7px;margin-right: 7px;" class="btn btn-sm navbar-inverse dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                         {{Auth::user()->user}} :: {{Perfil::find(Auth::user()->cod_profile)->profile_name}} 
+                                         <i class="glyphicon glyphicon-menu-down"></i>
+                                </a>
+                            <ul class="dropdown-menu" style="font-size: 13px;" role="menu" aria-labelledby="dropdownMenu1">
+                                <li class="dropdown-header"><span class="glyphicon glyphicon-cog"></span> Ayuda y configuración</li>
+                                <li >
+                                        <a href="{{action('LoginController@salir')}}">
+                                            <span class="glyphicon glyphicon-list-alt"></span> Registro de actividad
+                                        </a>
+                                    </li>   
+                                <li >
+                                <li >
+                                        <a href="{{action('LoginController@salir')}}">
+                                            <span class="glyphicon glyphicon-lock"></span> Info. Cuenta
+                                        </a>
+                                    </li>   
+                                <li >
+                                        <a href="{{action('LoginController@salir')}}">
+                                            <span class="glyphicon glyphicon-list"></span> Editar perfil
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li >
+                                        <a href="{{action('LoginController@salir')}}">
+                                            <span class="glyphicon glyphicon-off "></span> Cerrar sesión
+                                        </a>
+                                    </li>
+                                </ul>
+                            </a>
+                        </li>                   
                     </ul>
                 </div>
             </div>
         </div>
-=======
-	    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-	      	<div class="container-fluid">
-	        	<div class="navbar-header">
-	          		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	            		<span class="sr-only">Toggle navigation</span>
-	            		<span class="icon-bar"></span>
-	            		<span class="icon-bar"></span>
-	            		<span class="icon-bar"></span>
-	          		</button>
-	          		<a class="navbar-brand" href="{{action('HomeController@inicio')}}"><img src="{{URL::to('/')}}/img/logo.svg"></a>
-	        	</div>
-	        	<div class="navbar-collapse collapse">
-		          	<ul class="nav navbar-nav navbar-right">
-		          		{{-- if ((Session::get('usuario.cod_profile') == 1) or (Session::get('usuario.cod_profile') == 2)) --}}
-		          		<li><a href="{{action('MatriculaController@inicio')}}">Matricula</a></li>
-		            	<li><a href="{{action('EstudianteController@inicio')}}">Estudiante</a></li>
-                        <li><a href="{{action('AdmonacademicaController@inicio')}}">Acad&eacute;mico</a></li>
-		            	<li><a href="{{action('FamiliaController@inicio')}}">Familia</a></li>
-                        <li><a href="{{action('UsuarioController@inicio')}}">Usuario</a></li>
-		            	{{-- @endif --}}
-		            	<li><a href="{{action('LoginController@salir')}}">Salir</a></li>
-		          	</ul>
-	        	</div>
-	      	</div>
-	    </div>
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
+
 
         <div class="container-fluid">
             <div class="row">
@@ -99,9 +105,12 @@
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> --}}
-        <script src="{{URL::to('/')}}/js/jquery.min.js"></script>
-        <script src="{{URL::to('/')}}/js/bootstrap.min.js"></script>
-        <script src="{{URL::to('/')}}/js/main.js"></script>
-        @yield('js')
-    </body>
+        <script src="{{URL::to('/')}}/js/jquery-2.1.3.min.js"></script>
+        <script src="{{URL::to('/')}}/js/bootstrap.min.js"></script>        
+        <script src="{{URL::to('/')}}/js/gnsys-2015-validate.js"></script>
+        {{-- <script src="{{URL::to('/')}}/js/main.js"></script>--}}
+
+
+    @yield('js')
+</body>
 </html>

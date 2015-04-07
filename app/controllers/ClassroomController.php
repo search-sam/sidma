@@ -21,7 +21,11 @@ class ClassroomController extends BaseController {
         $classroom->capacity = $input['capacidad'];
         $classroom->description = $input['descripcion'];
         $classroom->save();
-       return Redirect::action('AdmonacademicaController@inicio');
+        $msg = 'Se ha registrado correctamente una nueva aula de clase al sistema :: <b>' . $classroom->classroom_name . '</b>';
+        if (isset($input['cod_classroom'])) {
+            $msg = 'Aula de clase <b>'.$classroom->classroom_name.'</b> :: Se han guardado correctamente los cambios realizados.';
+        }
+       return Redirect::action('AdmonacademicaController@inicio',array('#classrooms'))->with('message_classroom',$msg);
 
     }
     
@@ -42,6 +46,8 @@ class ClassroomController extends BaseController {
      public function borrarclase(){
         $input = Input::all();
         $classroom = Classroom::find($input["cod_classroom"]);
+        $classroom->grupo->delete();
+        
         $classroom->delete();
         return Redirect::action('AdmonacademicaController@inicio');
     }

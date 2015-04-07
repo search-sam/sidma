@@ -14,6 +14,20 @@
         <link href="{{URL::to('/')}}/css/signin.css" rel="stylesheet">	
         <link href="{{URL::to('/')}}/css/bootstrap.min.css" rel="stylesheet">
 
+        <script  type="text/javascript" language="javascript" src="{{URL::to('/')}}/js/jquery-2.1.3.min.js"></script>
+        <script  type="text/javascript" language="javascript" src="{{URL::to('/')}}/js/gnsys-2015-validate.js"></script>
+        <!--<script src="{{URL::to('/')}}/js/validate.min.js"></script>-->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/javascript">
+$(document).ready(function() {
+    $(document).on('click','#saveacceso',function(){
+        if(formIsvalid($('.form-control[required]'))){
+            $('#formulario').submit();
+        }
+    });
+});
+        </script>
+     
         <!-- Custom styles for this template -->
 
 
@@ -41,20 +55,21 @@
                         <div class="modal-body" style="background-color: transparent !important;">
                             <form  id="formulario" role="form" action="{{action('LoginController@acceso')}}" method="post">
                                 <div class="form-signin-heading">
-                                    <div class="alert alert-danger alert-dismissable"  id="aviso" <?= Session::has('message') ? '' : 'style="display:none"' ?>>
-                                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    <div class="alert alert-danger"   id="aviso" style="margin-bottom: 5px;<?= Session::has('message') ? '' : 'display:none;' ?>" >
                                         {{Session::get('message')}}
                                     </div>
+                                    
+                                    <div class="indicator"></div>
                                 </div>           
                                 <fieldset>
-                                    <div class="row">
+                                    <div class="row" style="padding: 10px;">
                                         <div class="col-sm-12 col-md-12 col-md-offset-0" >
                                             <div class="form-group ">
                                                 <div class="input-group">
                                                     <span class="input-group-addon alert-success">
                                                         <i class="glyphicon glyphicon-user"></i>
                                                     </span>                            
-                                                    <input name="usuario" type="text" id="user" autofocus class="form-control"  placeholder="Usuario" required/>
+                                                    <input name="usuario" type="text"  <?= Session::has('message') ? '':'autofocus'?> id="user" class="form-control"  placeholder="Usuario" required/>
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -66,30 +81,25 @@
                                                 </div>
                                             </div>
 
-                                            <button id="acceso" class="btn btn-lg btn-success btn-block">Acceder</button>
-                                        </div>
+                                             </div>
                                     </div>
                                 </fieldset>
                             </form>
+                             <button type="button" id="saveacceso" class="saveaccess btn btn-lg btn-success btn-block"><i class="glyphicon glyphicon-log-in"></i> Acceder</button>
+                                      
                         </div>
                         <div class="panel-footer">
-                            <h6>No recuerdo mi contraseña</h6>
+                            <h6><i class="glyphicon glyphicon-question-sign"></i> No recuerda su contraseña</h6>
                         </div>
                     </div>
                 </div>
             </div>
 
-        </div> 
-        <!-- /container -->
+        </div>         <!-- /container -->
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
-        <script src="{{URL::to('/')}}/js/jquery.min.js"></script>
+        
 
-        <script src="{{URL::to('/')}}/js/validate.min.js"></script>
-        <!-- Placed at the end of the document so the pages load faster -->
-        <script>
-$('form').validate();
-        </script>
     </body>
 </html>

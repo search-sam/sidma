@@ -12,7 +12,7 @@ $cod_grupo = $_REQUEST['cod_grupo'];
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title " id="myModalLabel">Sidma » Admón. académica  » Grupo <b>{{$grupo->grupo_name}}</b></h4>
+                <h4 class="modal-title " id="myModalLabel">Sidma » Admón. académica  » Grupo <b>{{Nivel::find($grupo->cod_level)->level_name}}{{$grupo->grupo_name}}</b></h4>
             </div>
 
             <div class="modal-body">
@@ -35,18 +35,22 @@ $cod_grupo = $_REQUEST['cod_grupo'];
                                 <select class="form-control" id="new_cod_classroom" name="new_cod_classroom">
                                   
                                     @foreach(Grupo::where('cod_classroom','!=',$grupo->cod_classroom)->get() as $cc => $mygrupo)
-                                    <option  value="{{$mygrupo->cod_classroom}}">Aula {{$myclassrooms::find($mygrupo->cod_classroom)->classroom_name}}, {{$myclassrooms::find($mygrupo->cod_classroom)->building}}</option>
+                                    <option  value="{{$mygrupo->cod_classroom}}">(Grupo {{Nivel::find($mygrupo->cod_level)->level_name}}{{$mygrupo->grupo_name}}) Aula {{$myclassrooms::find($mygrupo->cod_classroom)->classroom_name}}, {{$myclassrooms::find($mygrupo->cod_classroom)->building}}</option>
                                     @endforeach
                                 </select>
                              </div>
                         </div>
                     </div>
                 </div>
+                 <div class="alert alert-danger alert-dismissable" style="display: none;">                    
+                    <i class="glyphicon glyphicon-info-sign"></i> Complete los campos vacios. <strong>No se guardaron los datos.</strong>
+                </div>
+        <div class="indicator"></div>
             </div>
 
             <div class="modal-footer">
                 <button id="CloseModal" type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-success" id="changegroup" data-dismiss="modal">Guardar</button>
+                <button type="submit" class="btn btn-success" id="save" data-dismiss="modal">Guardar</button>
             </div>
         </div>
     </div>

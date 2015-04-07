@@ -53,11 +53,15 @@ echo($cod_class);
 
                     </div>
                 </div>
+                 <div class="alert alert-danger alert-dismissable" style="display: none;">                    
+                    <i class="glyphicon glyphicon-info-sign"></i> Complete los campos vacios. <strong>No se guardaron los datos.</strong>
+                </div>
+        <div class="indicator"></div>
             </div>
 
             <div class="modal-footer">
                 <button id="CloseModal" type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                <button type="submit" class="btn btn-success" id="save" data-dismiss="modal">Guardar</button>
+                <button type="submit" class="btn btn-success" id="save">Guardar</button>
             </div>
         </div>
     </div>

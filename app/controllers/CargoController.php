@@ -27,11 +27,15 @@ class CargoController extends BaseController {
         }
         $cargo->employment_name = $input['nombrecargo'];
         $cargo->description = $input['descripcion'];
+        $msg = 'Se ha registrado correctamente un nuevo cargo al sistema :: <b>' . $cargo->employment_name . '</b>';
+        if (isset($input['cod_employment'])) {
+            $msg = 'Cargo <b>' . $cargo->employment_name . '</b> :: Se han guardado correctamente los cambios realizados.';
+        }
 
         $cargo->save();
-     
-      
-        return Redirect::action('EmpleadoController@inicio');
+
+
+        return Redirect::action('EmpleadoController@inicio', array('#employments'))->with('message_employment', $msg);
     }
 
 }

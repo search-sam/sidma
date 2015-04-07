@@ -19,7 +19,11 @@ $materia = new Materia;
 $materia->subject_name = $input['nombremateria'];
 
 $materia->save();
-return Redirect::action('AdmonacademicaController@inicio');
+$msg = 'Se ha registrado correctamente una nueva materia  al sistema :: <b>' . $materia->subject_name . '</b>';
+        if (isset($input['cod_subject'])) {
+            $msg = 'Materia <b>'.$materia->subject_name.'</b> :: Se han guardado correctamente los cambios realizados.';
+        }
+return Redirect::action('AdmonacademicaController@inicio',array('#subjects'))->with('message_subject',$msg);
 
 }
 

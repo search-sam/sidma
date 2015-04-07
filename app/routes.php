@@ -49,6 +49,14 @@ Route::any('estudiante/actulizar', 'EstudianteController@actulizar');
 Route::any('estudiante/deshabilitar', 'EstudianteController@deshabilitar');
 Route::any('estudiante/datos', 'EstudianteController@datosmatricula');
 Route::any('estudiante/informar', 'EstudianteController@guardardatos');
+Route::any('estudiante/docontinue', 'EstudianteController@docontinue');
+Route::any('estudiante/doasignfamily', 'EstudianteController@doasignfamily');
+Route::any('estudiante/generarmatricula', 'EstudianteController@generateenrollment');
+Route::any('estudiante/createenrollment','EstudianteController@createenrollment');
+Route::any('estudiante/documents', 'EstudianteController@documents');
+Route::any('estudiante/detalleplandepago', 'EstudianteController@detalleplandepago');
+Route::any('estudiante/new_receipt', 'EstudianteController@new_receipt');
+Route::any('estudiante/new_payment', 'EstudianteController@new_payment');
 
 /* FamiliaController */
 Route::any('familia/inicio', 'FamiliaController@inicio');
@@ -60,6 +68,9 @@ Route::any('padre/tutor', 'FamiliaController@tutoragregar');
 /* MatriculaController */
 Route::any('matricula/inicio', 'MatriculaController@inicio');
 Route::any('matricula/editar', 'MatriculaController@editar');
+Route::any('matricula/registrar', 'MatriculaController@registrar');
+Route::any('matricula/enroll', 'MatriculaController@enroll');
+Route::any('matricula/registrosactuales', 'MatriculaController@registrosactuales');
 
 /*YearController */
 Route::any('year/inicio', 'YearController@inicio');
@@ -117,13 +128,50 @@ ROute::any('grupo/neworedit','GrupoController@neworedit');//Esta ruta es para cr
 
 /* AdmonAcademicaController */
 Route::any('admonacademica/inicio','AdmonacademicaController@inicio');
-<<<<<<< HEAD
 Route::any('admonacademica/periodos','AdmonacademicaController@periodos');
 
-Route::get('archive', array('before' => 'require_login', 'uses' => 'HomeController@archive'));
-=======
+/*AdministrativaController */
+Route::any('administrativa/inicio','AdministrativaController@inicio');
+Route::any('administrativa/adminyear','AdministrativaController@adminyear');
+Route::any('administrativa/editaryear','AdministrativaController@editaryear');
+
+/*PlandepagoCOntroller */
+Route::any('plandepago/editar','PlandepagoController@editar');
+Route::any('plandepago/neworedit','PlandepagoController@neworedit');
+Route::any('plandepago/borrar','PlandepagoController@borrar');
+Route::any('plandepago/borrarplan','PlandepagoController@borrarplan');
+Route::any('plandepago/agregar','PlandepagoController@agregar');
+Route::any('plandepago/addtoyear','PlandepagoController@addtoyear');
+Route::any('plandepago/getdiscount','PlandepagoController@getdiscount');
+Route::any('plandepago/gestionpago','PlandepagoController@gestionpago');
+Route::any('plandepago/realizarpago','PlandepagoController@realizarpago');
+
+/*MétododepagoController */
+Route::any('metododepago/editar','MetododepagoController@editar');
+Route::any('metododepago/neworedit','MetododepagoController@neworedit');
+Route::any('metododepago/neworedit','MetododepagoController@neworedit');
+Route::any('metododepago/borrar','MetododepagoController@borrar');
+Route::any('metododepago/borrarmetodo','MetododepagoController@borrarmetodo');
+
+/*ConceptodepagoController */
+Route::any('conceptodepago/editar','ConceptodepagoController@editar');
+Route::any('conceptodepago/neworedit','ConceptodepagoController@neworedit');
+Route::any('conceptodepago/neworedit','ConceptodepagoController@neworedit');
+Route::any('conceptodepago/borrar','ConceptodepagoController@borrar');
+Route::any('conceptodepago/agregar','ConceptodepagoController@agregar');
+Route::any('conceptodepago/addtoyear','ConceptodepagoController@addtoyear');
+
+/*DescuentoController */
+Route::any('descuento/editar','DescuentoController@editar');
+Route::any('descuento/neworedit','DescuentoController@neworedit');
+Route::any('descuento/neworedit','DescuentoController@neworedit');
+Route::any('descuento/borrar','DescuentoController@borrar');
+Route::any('descuento/borrardescuento','DescuentoController@borrardescuento');
+Route::any('descuento/agregar','DescuentoController@agregar');
+Route::any('descuento/addtoyear','DescuentoController@addtoyear');
+
 
 /* UsuarioController*/
 Route::any('usuario/inicio','UsuarioController@inicio');
 Route::any('usuario/nuevo','UsuarioController@nuevo');
->>>>>>> fc3a6fb7cb8fdc99b9dc659b6533c4da06aef4fe
+

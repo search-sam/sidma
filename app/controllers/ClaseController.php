@@ -20,25 +20,30 @@ class ClaseController extends BaseController {
         $nivel->save();
         return Redirect::action('AdmonacademicaController@inicio');
     }
-public function agregarmateria(){
-    $input=Input::all();
-    $cod_year_grupo = $input['cod_year_grupo'];
-    
-     if (isset($input['cod_class'])) {
-         $clase = Clase::find($input['cod_class']);
-     }else{
-           $clase = new Clase;
-           $clase->cod_subject = $input['materia'];
-           $clase->cod_year_grupo = $cod_year_grupo;
-     }
-    
-    $clase->cod_teacher = $input['docente'];
-    $clase->semester_quantity = $input['semestre'];
-    
-    $clase->save();
-     return Redirect::action('AdmonacademicaController@periodos',array('cod_school_year'=>  Yeargroup::find($cod_year_grupo)->cod_school_year));
-}
-    
+
+    public function agregarmateria() {
+        $input = Input::all();
+        $cod_year_grupo = $input['cod_year_grupo'];
+
+        if (isset($input['cod_class'])) {
+            $clase = Clase::find($input['cod_class']);
+        } else {
+            $clase = new Clase;
+            $clase->cod_subject = $input['materia'];
+            $clase->cod_year_grupo = $cod_year_grupo;
+        }
+
+        $clase->cod_teacher = $input['docente'];
+        $clase->semester_quantity = $input['semestre'];
+
+        $clase->save();
+        $msg = 'Se ha registrado correctamente <b>'.Materia::find($clase->cod_subject)->subject_name.'</b> al siguiente grupo :: <b>'.Nivel::find((Grupo::find(Yeargroup::find($clase->cod_year_grupo)->cod_grupo)->cod_level))->level_name.'' . Grupo::find(Yeargroup::find($clase->cod_year_grupo)->cod_grupo)->grupo_name . '</b>';
+        if (isset($input['cod_class'])) {
+            $msg = 'Grupo <b>' . Nivel::find((Grupo::find(Yeargroup::find($clase->cod_year_grupo)->cod_grupo)->cod_level))->level_name . '' . Grupo::find(Yeargroup::find($clase->cod_year_grupo)->cod_grupo)->grupo_name . '</b> | ' . Year::find(Yeargroup::find($clase->cod_year_grupo)->cod_school_year)->name_school_year .' » <b>'.Materia::find($clase->cod_subject)->subject_name.'</b> :: Se han guardado correctamente los cambios realizados.';
+        }
+        return Redirect::action('AdmonacademicaController@periodos', array('#groupsyear', 'cod_school_year' => Yeargroup::find($cod_year_grupo)->cod_school_year))->with('message_class',$msg);
+    }
+
     public function editarclase() {
         $input = Input::all();
         if (isset($input['cod_year_grupo'])) {
@@ -48,9 +53,8 @@ public function agregarmateria(){
         }
         if (isset($input['cod_class'])) {
             $cod_class = $input['cod_class'];
-        } else
-        {
-            $cod_class='';
+        } else {
+            $cod_class = '';
         }
         $cod_year_grupo = $input['cod_year_grupo'];
         if (isset($input['cod_class'])) {
@@ -59,9 +63,9 @@ public function agregarmateria(){
             $clase = New Clase;
         }
         $materias = new Materia;
-         return View::make('clase.editarclase')->with('yeargrupo', $yeargrupo)->with('materias',$materias)
-            ->with('cod_year_grupo',$cod_year_grupo)
-            ->with('clase',$clase)->with('cod_class',$cod_class);
+        return View::make('clase.editarclase')->with('yeargrupo', $yeargrupo)->with('materias', $materias)
+                        ->with('cod_year_grupo', $cod_year_grupo)
+                        ->with('clase', $clase)->with('cod_class', $cod_class);
     }
 
     public function editar() {

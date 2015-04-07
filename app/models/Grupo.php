@@ -2,15 +2,17 @@
 
 class Grupo extends Eloquent {
 
-    protected $table = 'Grupo';
+    protected $table = 'grupo';
     protected $primaryKey = 'cod_grupo';
     public $timestamps = false;
 
-    public function scopeNotasigned($query) {
-        return $query->whereNotExists(function($query) {
-                return $query->select('*')
-                             ->from('year_grupo')
-                             ->whereRaw('year_grupo.cod_grupo=grupo.cod_grupo');
+    public function scopeNotasigned($query, $cod_school_year) {
+        return $query->whereNotExists(
+                function ($query) use ($cod_school_year) {
+                    return $query->select('*')
+                                    ->from('year_grupo')
+                                    ->whereRaw('year_grupo.cod_grupo=grupo.cod_grupo AND year_grupo.cod_school_year='.$cod_school_year);
+                                   
                 })->get();
     }
 
@@ -21,15 +23,13 @@ class Grupo extends Eloquent {
     public function yeargroup() {
         return $this->hasMany('Yeargroup', 'cod_grupo');
     }
-    
-   
-    
-    public function years(){
-        return $this->belongsToMany('Year','year_grupo','cod_grupo','cod_school_year');
+
+    public function years() {
+        return $this->belongsToMany('Year', 'year_grupo', 'cod_grupo', 'cod_school_year');
     }
 
     public function nivel() {
-        return $this->belongsTo('Nivel', 'cod_level', 'cod_grupo');
+        return $this->belongsTo('Nivel', 'cod_level');
     }
 
 }

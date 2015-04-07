@@ -28,16 +28,39 @@ class YearController extends BaseController {
         } else {
             $year = new Year;
         }
-        $year->name_school_year =             $input['nombreyear'];
-        $year->date_from =                    Util::FormatDateMysql($input['fechainicio']);
-        $year->date_to =                      Util::FormatDateMysql($input['fechafin']);
-        $year->evaluation_quantity_semester = $input['evaluaciones'];
-        $year->minimum_note =                 $input['notaminima'];
-        $year->minimum_failed_class =         $input['creditos'];
-        $year->surcharge_rate =               $input['recargomora'];
-        $year->surcharge_limit_days =         $input['limitedias'];
+        if (isset($input['nombreyear'])) {
+            $year->name_school_year = $input['nombreyear'];
+        }
+        if (isset($input['fechainicio'])) {
+            $year->date_from = Util::FormatDateMysql($input['fechainicio']);
+        }
+        if (isset($input['fechafin'])) {
+            $year->date_to = Util::FormatDateMysql($input['fechafin']);
+        }
+        if (isset($input['evaluaciones'])) {
+            $year->evaluation_quantity_semester = $input['evaluaciones'];
+        }
+         if (isset($input['notaminima'])) {
+             $year->minimum_note = $input['notaminima'];
+        }
+         if (isset($input['creditos'])) {
+            $year->minimum_failed_class = $input['creditos'];
+        }
+         if (isset($input['recargomora'])) {
+           $year->surcharge_rate = $input['recargomora'];
+        }
+         if (isset($input['limitedias'])) {
+           $year->surcharge_limit_days = $input['limitedias'];
+        }   
         $year->save();
-        return Redirect::action('AdmonacademicaController@inicio');
+          if (isset($input['next_action'])) {
+           return Redirect::action($input['next_action']);
+        }    
+         $msg = 'Se ha registrado correctamente un nuevo año lectivo al sistema :: <b>' . $year->name_school_year . '</b>';
+        if (isset($input['cod_school_year'])) {
+            $msg = 'Año lectivo <b>'.$year->name_school_year.'</b> :: Se han guardado correctamente los cambios realizados.';
+        }
+        return Redirect::action('AdmonacademicaController@inicio',array('#lectiveyear'))->with('message_year',$msg);
     }
 
     public function borrar() {

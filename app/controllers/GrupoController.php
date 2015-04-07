@@ -34,7 +34,11 @@ class GrupoController extends BaseController {
         $yeargrupo->cod_teacher = $input['docente'];
         $yeargrupo->cod_shift = $input['turno'];
         $yeargrupo->save();
-        return Redirect::action('AdmonacademicaController@periodos',array('cod_school_year'=>$cod_school_year));
+        $msg = 'Se ha registrado correctamente una nueva grupo al año académico vigente del sistema :: <b>' . Grupo::find($yeargrupo->cod_grupo)->grupo_name . '</b>';
+        if (isset($input['cod_year_grupo'])) {
+            $msg = 'Grupo <b>' . Nivel::find((Grupo::find($yeargrupo->cod_grupo)->cod_level))->level_name . '' . Grupo::find($yeargrupo->cod_grupo)->grupo_name . '</b> | ' . Year::find($yeargrupo->cod_school_year)->name_school_year . ' :: Se han guardado correctamente los cambios realizados.';
+        }
+        return Redirect::action('AdmonacademicaController@periodos', array('#groupsyear', 'cod_school_year' => $cod_school_year))->with('message_group_year', $msg);
     }
 
     public function gruposyear() {
@@ -43,8 +47,8 @@ class GrupoController extends BaseController {
         $grupos = new Grupo;
         $docentes = new Docente;
         $turnos = new Turno;
-        if (isset($input['cod_school_year'])) {
-            $grupoyear = Yeargroup::find($input['cod_school_year']);
+        if (isset($input['cod_year_grupo'])) {
+            $grupoyear = Yeargroup::find($input['cod_year_grupo']);
         } else {
             $grupoyear = New Yeargroup;
         }
@@ -66,7 +70,8 @@ class GrupoController extends BaseController {
         $grupo2->cod_classroom = $input['actual_cod_classroom'];
         $grupo->save();
         $grupo2->save();
-        return Redirect::action('AdmonacademicaController@inicio');
+        $msg = 'Se ha reasignado correctamente el grupo <b>'.Nivel::find($grupo->cod_level)->level_name.''.$grupo->grupo_name.'</b> al aula :: <b>' . Classroom::find($grupo->cod_classroom)->classroom_name . '</b>';
+      return Redirect::action('AdmonacademicaController@inicio',array('#classrooms'))->with('message_reasign',$msg);
     }
 
     public function agregargrupo() {
@@ -76,7 +81,9 @@ class GrupoController extends BaseController {
         $grupo->cod_classroom = $input["cod_classroom"];
         $grupo->grupo_name = $input["nombregrupo"];
         $grupo->save();
-        return Redirect::action('AdmonacademicaController@inicio');
+        $msg = 'Se ha agregado correctamente un nuevo grupo <b>'.Nivel::find($grupo->cod_level)->level_name.''.$grupo->grupo_name.'</b> en al aula :: <b>' . Classroom::find($grupo->cod_classroom)->classroom_name . '</b>';
+      
+        return Redirect::action('AdmonacademicaController@inicio',array('#classrooms'))->with('message_add',$msg);
     }
 
 }
